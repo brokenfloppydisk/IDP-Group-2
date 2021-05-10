@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145323553}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SpaceBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 1256103602}
   - component: {fileID: 1256103601}
   - component: {fileID: 1256103600}
+  - component: {fileID: 1256103604}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -659,6 +660,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1256103604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256103599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ad7973e1d9b934db76f270f668d080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newGameScene: 
 --- !u!1 &1312456329
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +754,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1312456332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1256103604}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1312456332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1091,6 @@ GameObject:
   - component: {fileID: 2139437588}
   - component: {fileID: 2139437587}
   - component: {fileID: 2139437586}
-  - component: {fileID: 2139437585}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1094,19 +1118,6 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -130}
   m_SizeDelta: {x: 260.39252, y: 67.42528}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2139437585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139437583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ad7973e1d9b934db76f270f668d080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newGameScene: Placeholder
 --- !u!114 &2139437586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,7 +1160,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139437587}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1256103604}
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139437587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,7 +1220,7 @@ GameObject:
   - component: {fileID: 2145308277}
   - component: {fileID: 2145308276}
   m_Layer: 0
-  m_Name: starfieldcropped
+  m_Name: StarField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
