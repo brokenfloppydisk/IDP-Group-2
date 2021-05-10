@@ -21,7 +21,7 @@ public class DataDump : MonoBehaviour
         });
     }
     void Update() {
-        
+
     }
     public static string[] Scopes = {Scope.Spreadsheets}; 
     public static string ApplicationName = "EscapeRoom";
@@ -39,12 +39,16 @@ public class DataDump : MonoBehaviour
         var response = request.Execute();
         var values = response.Values;
         if (values != null && values.Count > 0) {
+            var sb = new StringBuilder();
             foreach (var row in values) {
-                Debug.Log(System.String.Format("Values extracted: {0}, {1}, {2}",row[0],row[1],row[3]));
+                sb.Append("Row: ");
+                foreach (var item in row) {
+                    sb.Append(item);
+                }
+                sb.Append("\n");
             }
-
+            Debug.Log(sb);
         }
-
     }
     /// <summary>
     /// This method creates entries on the spreadsheet.
