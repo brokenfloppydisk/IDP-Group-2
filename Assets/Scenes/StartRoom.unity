@@ -297,8 +297,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInterface:
-    title: 
-    sentences: []
+    title: PLACEHOLDERNAME ALPHABET
+    sentences:
+    - A   B   C   D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R   S  
+      T   U   V   W   X   Y   Z
 --- !u!1 &218538240
 GameObject:
   m_ObjectHideFlags: 0
