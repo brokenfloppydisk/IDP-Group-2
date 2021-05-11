@@ -32,29 +32,19 @@ public class DataDump : MonoBehaviour
     private GoogleCredential credential;
 
     /// <summary>
-    /// This method reads entries from the spreadsheet and prints them to the debug log.
+    /// This method reads and returns entries from the spreadsheet as a 2D IList.
     /// </summary>
-    void ReadEntries(string rangeLow, string rangeHigh){
+    public IList<IList<object>> ReadEntries(string rangeLow, string rangeHigh){
         var range = $"{sheet}!{rangeLow}:{rangeHigh}";
         var request = service.Spreadsheets.Values.Get(SpreadsheetID, range);
         var response = request.Execute();
         var values = response.Values;
-        if (values != null && values.Count > 0) {
-            var sb = new StringBuilder();
-            foreach (var row in values) {
-                sb.Append("Row: ");
-                foreach (var item in row) {
-                    sb.Append(item);
-                }
-                sb.Append("\n");
-            }
-            Debug.Log(sb);
-        }
+        return values;
     }
     /// <summary>
     /// This method creates entries on the spreadsheet.
     /// </summary>
-    void CreateEntry(string leftColumn, string rightColumn, List<object> inputs) {
+    public void CreateEntry(string leftColumn, string rightColumn, List<object> inputs) {
         var range = $"{sheet}!{leftColumn}:{rightColumn}";
         var valueRange = new ValueRange();
         // var objectList = new List<object>() {"Test", "Test2", "Test3"};
@@ -66,7 +56,7 @@ public class DataDump : MonoBehaviour
     /// <summary>
     /// This method changes entries on the spreadsheet.
     /// </summary>
-    void UpdateEntry(string cell, List<object> inputs) {
+    public void UpdateEntry(string cell, List<object> inputs) {
         var range = $"{sheet}!{cell}";
         var valueRange = new ValueRange();
         valueRange.Values = new List<IList<object>> {inputs};
@@ -78,7 +68,7 @@ public class DataDump : MonoBehaviour
     /// <summary>
     /// This method deletes entries from the spreadsheet.
     /// </summary>
-    void DeleteEntry(string leftBound, string rightBound) {
+    public void DeleteEntry(string leftBound, string rightBound) {
         var range = $"{sheet}!{leftBound}:{rightBound}";
         var requestBody = new ClearValuesRequest();
         var deleteRequest = service.Spreadsheets.Values.Clear(requestBody, SpreadsheetID, range);
