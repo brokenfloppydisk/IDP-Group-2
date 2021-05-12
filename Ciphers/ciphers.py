@@ -58,7 +58,7 @@ def one_time_pad(string,key,encode = True, Caesar = False):
     return output
 
 def book_cipher(book,string):
-    """Returns the key for word book cipher.
+    """Returns a random key for a book cipher.
     
     Args:
         book (string): The book that the string is hidden in
