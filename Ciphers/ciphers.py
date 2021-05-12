@@ -12,7 +12,7 @@ def alphabet(capitalized = True):
     return [chr(i) for i in (range(65,91) if capitalized else range(97,123))]
 
 def str_to_num(string):
-    """Converts word string to word list of numbers from 1-26
+    """Converts word string to word list of numbers from 1-26. (Can be used to convert a paragraph into a one-time-pad key)
     
     Args:
         string (string): The string to be converted
@@ -50,9 +50,9 @@ def one_time_pad(string,key,encode = True, Caesar = False):
             keys.append(alphabet.index(key[i]))
     elif type(key) == int:
         keys = [key]
-    for i in string:
-        if i in alphabet():
-            output += chr((alphabet().index(i)+(1 if encode == True else -1)*(keys[i] if Caesar==False else keys[0]))%26+65)
+    for i in range(len(string)):
+        if string[i] in alphabet():
+            output += chr((alphabet().index(string[i])+(1 if encode == True else -1)*(keys[i] if Caesar==False else keys[0]))%26+65)
         else:
             output += " "
     return output
