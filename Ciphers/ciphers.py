@@ -27,23 +27,32 @@ def str_to_num(string):
             output.append(alphabet().index(i)+1)
     return output
 
-def one_time_pad(string,key,encode = True):
+def one_time_pad(string,key,encode = True, Caesar = False):
     """Encodes or decodes word one-time-pad.
     
     Args:
         string (string): The string to be encoded/decoded
+        key (list or string): The key to be shifted by
         encode (bool): Sets encoding or decoding
+        Caesar (bool): Sets Caesar Cipher mode
     
     Returns:
         string: The encoded/decoded string
     """
-    if len(key) < len(string):
-        return None
     output = ""
-    string = remove_punc(string, True)
+    string = format_string(remove_punc(string))
+    keys = []
+    if type(key) == list:
+        keys = key
+    elif type(key) == string:
+        key = format_string(remove_punc(key),False)
+        for i in key:
+            keys.append(alphabet.index(key[i]))
+    elif type(key) == int:
+        keys = [key]
     for i in string:
         if i in alphabet():
-            output += chr((alphabet().index(i)+(1 if encode == True else -1)*key)%26+65)
+            output += chr((alphabet().index(i)+(1 if encode == True else -1)*(keys[i] if Caesar==False else keys[0]))%26+65)
         else:
             output += " "
     return output
