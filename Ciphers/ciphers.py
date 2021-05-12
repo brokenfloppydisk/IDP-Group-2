@@ -68,8 +68,8 @@ def book_cipher(book,string):
         list: A list of lists where the first index is the word, and the second index is the character.
     """
     for i in string:
-        if i not in book:
-            print("Invalid key")
+        if i.upper() not in book and i.lower() not in book:
+            print("Invalid book")
             return None
     string = list(format_string(remove_punc(string),True))
     words = words_list(book)
