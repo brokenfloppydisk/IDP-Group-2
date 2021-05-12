@@ -8,15 +8,21 @@ public class TextManager : MonoBehaviour
     public Text titleText;
     public Text bodyText;
 
+
+    public List<Animator> animators;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         sentences = new Queue<string>();
     }
     public void StartText(TextObject textObj) {
+        for (int i = 0; i < animators.Count; i++) {
+            animators[i].SetBool("TabletOpen", true);
+        }
         titleText.text = textObj.title;
         sentences.Clear();
-        foreach (string sentence in textObj.sentences) {
+        for (int i = 0; i < textObj.sentences.Length; i++) {
+            string sentence = textObj.sentences[i];
             sentences.Enqueue(sentence);
         }
 
@@ -29,9 +35,23 @@ public class TextManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        bodyText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
     }
+
+    IEnumerator TypeSentence(string sentence) {
+        bodyText.text = "";
+        char[] sentence_array = sentence.ToCharArray();
+        for (int i = 0; i < sentence_array.Length; i++) {
+            char letter = sentence_array[i];
+            bodyText.text += letter;
+            yield return null;
+        }
+    }
+
     public void EndText() {
-        Debug.Log("End of Text");
+        for (int i = 0; i < animators.Count; i++) {
+            animators[i].SetBool("TabletOpen", false);
+        }
     }
 }
