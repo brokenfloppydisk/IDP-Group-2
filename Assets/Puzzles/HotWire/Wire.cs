@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
     private LineRenderer lineRenderer;
     private Canvas canvas;
-    private bool isBeingDragged = false;
-
+    public bool isBeingDragged = false;
+    private HotWirePuzzle puzzle;
+    public int matchIndex;
+    public bool success = false;
     
-
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
         canvas = GetComponentInParent<Canvas>();
+        puzzle = GetComponentInParent<HotWirePuzzle>();
     }
 
     void Update() {
@@ -22,23 +24,44 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out movePos);
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, canvas.transform.TransformPoint(movePos));
-        } else {
-            lineRenderer.SetPosition(0, Vector3.zero);
-            lineRenderer.SetPosition(1, Vector3.zero); 
+        } else { 
+            if (!success) {
+                lineRenderer.SetPosition(0, Vector3.zero);
+                lineRenderer.SetPosition(1, Vector3.zero); 
+            }
+            
+        }
+
+        bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition, canvas.worldCamera);
+
+        if (isHovered) {
+            puzzle.currentHoveredWire = this;
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // unused
+        if (puzzle.topWires.Contains(this)) { return; }
+        if (success) {return ;}
+        isBeingDragged = true;
+        puzzle.currentDraggedWire = this;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        isBeingDragged = true;
+        //unused
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (puzzle.currentHoveredWire != null) {
+            if (puzzle.currentDraggedWire.matchIndex == puzzle.currentHoveredWire.matchIndex)  {
+                if (puzzle.topWires.Contains(puzzle.currentHoveredWire)) {
+                    success = true;
+                    puzzle.currentHoveredWire.success = true;
+                }
+            }
+        }
         isBeingDragged = false;
+        puzzle.currentDraggedWire = null;
     }
 }
