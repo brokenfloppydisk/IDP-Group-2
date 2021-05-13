@@ -8,11 +8,9 @@ def check_input(message):
         return False
     else:
         print("Invalid input. Please try again.")
-        return check_input(message)
+        return check_input(message) 
 
 convert_key = check_input("Are you using a string as the key? ")
-
-caesar = check_input("Are you using a caesar cipher? ")
 
 key = None
 
@@ -23,13 +21,18 @@ else:
     key = []
     while complete!=True:
         user_input = input("Next key value (Type end to stop): ").upper()
-        if type(user_input) == int:
-            key.append(user_input)
-        elif "END" in input:
+        ints = [int(i) for i in list(user_input) if i.isdigit()]
+        integers = ""
+        for i in ints:
+            integers += str(i)
+        if ints != []:
+            key.append(int(integers))
+        elif "END" in user_input and len(key) > 1:
             complete=True
         else:
             print("Invalid input. Please try again.")
 
+caesar = check_input("Are you using a caesar cipher? ")
 
 encode = check_input("Are you encoding a cipher? ")
 
