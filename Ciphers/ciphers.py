@@ -43,8 +43,12 @@ def one_time_pad(string,key,encode = True, Caesar = False):
     string = format_string(remove_punc(string))
     keys = []
     if type(key) == list:
+        if len(key) < len(string):
+            return None
         keys = key
     elif type(key) == string:
+        if len(key) < len(string):
+            return None
         key = format_string(remove_punc(key),False)
         for i in key:
             keys.append(alphabet.index(key[i]))
