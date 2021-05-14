@@ -6,7 +6,7 @@ using UnityEngine;
 public class TextObject
 {
     public string title;
-    [TextArea(3,10)]
+    [TextArea(3,20)]
     public string[] sentences;
     public Color textColor;
     public int fontSize;
