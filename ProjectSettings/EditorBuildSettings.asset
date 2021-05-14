@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartRoom.unity
     guid: dc1efad66241f8f42bac8e778494f1ec
+  - enabled: 1
+    path: Assets/Scenes/EscapePod.unity
+    guid: fb92bafef936393479dbe87dfee8bb5f
+  - enabled: 1
+    path: Assets/Scenes/Library.unity
+    guid: 89b54d70b14d52848918999a7dc80b4f
   m_configObjects: {}
