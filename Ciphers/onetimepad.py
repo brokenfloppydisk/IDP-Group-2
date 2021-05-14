@@ -10,6 +10,8 @@ def check_input(message):
         print("Invalid input. Please try again.")
         return check_input(message) 
 
+
+
 convert_key = check_input("Are you using a string as the key? ")
 
 key = None
@@ -31,6 +33,9 @@ else:
             complete=True
         else:
             print("Invalid input. Please try again.")
+book = open("book.txt","r")
+key = book.read()
+key = str(ciphers.format_string(ciphers.remove_punc(key)))
 
 caesar = check_input("Are you using a caesar cipher? ")
 
