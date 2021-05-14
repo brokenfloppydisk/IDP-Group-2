@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
     private Canvas canvas;
     public bool isBeingDragged = false;
     private HotWirePuzzle puzzle;
     public int matchIndex;
     public bool success = false;
-    
+    public bool connected = false;
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
         canvas = GetComponentInParent<Canvas>();
@@ -25,17 +25,24 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, canvas.transform.TransformPoint(movePos));
         } else { 
-            if (!success) {
-                lineRenderer.SetPosition(0, Vector3.zero);
-                lineRenderer.SetPosition(1, Vector3.zero); 
-            }
-            
+        if (!connected && puzzle.nonHoveredWires.Contains(this)) {
+            lineRenderer.SetPosition(0, Vector3.zero);
+            lineRenderer.SetPosition(1, Vector3.zero); 
+        } else {
+            connected = true;
         }
+        }
+        
 
         bool isHovered = RectTransformUtility.RectangleContainsScreenPoint(transform as RectTransform, Input.mousePosition, canvas.worldCamera);
 
         if (isHovered) {
             puzzle.currentHoveredWire = this;
+            if (puzzle.nonHoveredWires.Contains(this)) {
+                puzzle.nonHoveredWires.Remove(this);
+            }
+        } else {
+            puzzle.nonHoveredWires.Add(this);
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -57,6 +64,7 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             if (puzzle.currentDraggedWire.matchIndex == puzzle.currentHoveredWire.matchIndex)  {
                 if (puzzle.topWires.Contains(puzzle.currentHoveredWire)) {
                     success = true;
+                    connected = true;
                     puzzle.currentHoveredWire.success = true;
                 }
             }
