@@ -1,1 +1,65 @@
-'Did you ever hear the Tragedy of Darth Plagueis the wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life... He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful... the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. It's ironic he could save others from death, but not himself.'
+Patient #31 Medical Records 
+Age: 89 
+Status: unstable 
+Experiencing brain hemorrhage and frequent cardiac arrests 
+Expected death: 3 months 
+Medicinal history: 
+[medicine name: Cetrotrope] no effect 
+[medicine name: Lionatal] exacerbated symptoms 
+[medicine name: Afiracil] exacerbated symptoms 
+[medicine name: Megexetine] death 
+[medicine name: Afrezoxane Amphoramine] untested 
+
+ENTRY #42: 
+Date: 03/04/2020 
+Procedure: 
+Injected patient with Cetrotrope 
+Effects: none 
+Chance of recovery: 20% 
+Subject Status: 
+unstable 
+Notes: 
+Patient’s condition remains the same, including heart palpitations, migraines, difficulty swallowing, and loss of coordination. Nothing seems to be working. 
+
+
+ENTRY #43 
+
+Date: 03/10/2020 
+Procedure: 
+Injected patient with Lionatal 
+Effects: worsened respiratory system 
+Chance of recovery: 10% 
+Subject Status: 
+unstable 
+Notes: 
+Patient’s breathing worsened after the second dose of Lionatal. Had to provide O2 masks to keep the patient’s breathing under control. 
+
+
+
+ENTRY #44 
+
+Date: 03/17/2020 
+Procedure: 
+Injected patient with Afiracil 
+Effects: cardiac arrest and stress  
+Chance of recovery: 75% 
+Subject Status: 
+stable 
+Notes: 
+Patient became very stressed after 15 minutes, soon after the patient had a cardiac arrest. 
+
+
+ENTRY #45 
+
+Date: 03/24/2020 
+Procedure: 
+Injected patient with Megexetine 
+Effects: Blood pressure shot up extremely high, heart rate rapidly increased, induced multiple seizures 
+Chance of recovery: 0% 
+Subject Status: 
+dead? 
+Notes: 
+Patient’s blood pressure and heart rate shot up at an alarming rate, causing multiple seizures that led to their death. Do not recommend this medicine at all. 
+
+
+
