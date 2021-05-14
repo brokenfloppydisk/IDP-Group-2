@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     public bool timerActive;
     public Text text;
     private float startTime {get; set;}
+    
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class GameTimer : MonoBehaviour
     }
 
     void Awake() {
+        startTime = Time.time;
         DontDestroyOnLoad(this.gameObject);
     }
 
