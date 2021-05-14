@@ -46,12 +46,12 @@ def one_time_pad(string,key,encode = True, Caesar = False):
         if len(key) < len(string):
             return None
         keys = key
-    elif type(key) == string:
+    elif type(key) == str:
         if len(key) < len(string):
             return None
         key = format_string(remove_punc(key),False)
         for i in key:
-            keys.append(alphabet.index(key[i]))
+            keys.append(alphabet().index(i)+1)
     elif type(key) == int:
         keys = [key]
     for i in range(len(string)):
@@ -77,6 +77,9 @@ def book_cipher(book,string):
             return None
     string = list(format_string(remove_punc(string),True))
     words = words_list(book)
+    for i in words:
+        if i == "":
+            words.remove("")
     letters_list = create_letters_list(words)
     output = []
     for i in range(len(string)):
@@ -101,14 +104,17 @@ def decode_book(book,key):
         string: the decoded message
     """
     words = words_list(book)
-    
+    for i in words:
+        if i == "":
+            words.remove("")
     output = ""
     for i in range(len(key)):
         if key[i] == " ":
             output += " "
         else:
-            
-            output += list(words[key[i][0]-1])[key[i][1]-1]
+            key_word_index = key[i][0]-1
+            key_letter_index = key[i][1]-1
+            output += words[key_word_index][key_letter_index]
 
     return output
 
@@ -178,8 +184,11 @@ def remove_punc(string):
         string: word formatted string
     """
     temp = ""
+    previous_item = ""
     for i in string:
         if i.upper() in alphabet() or i == " ":
-            temp += i
+            if not (previous_item == " " and i== " "):
+                temp += i
+            previous_item = i.upper()
     return temp
     
