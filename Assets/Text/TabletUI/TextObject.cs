@@ -8,5 +8,9 @@ public class TextObject
     public string title;
     [TextArea(3,10)]
     public string[] sentences;
+    public Color textColor;
+    public int fontSize;
+    public int titleFontSize;
+    public Font font;
     
 }

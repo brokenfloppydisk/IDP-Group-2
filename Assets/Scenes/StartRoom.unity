@@ -412,6 +412,10 @@ MonoBehaviour:
     - 
     - A   B   C   D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R   S  
       T   U   V   W   X   Y   Z
+    textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
+    fontSize: 150
+    titleFontSize: 100
+    font: {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
 --- !u!1 &218538240
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 1747766215}
   bodyText: {fileID: 2015915246}
+  alreadyAnimating: 0
   animators:
   - {fileID: 1128527126}
   - {fileID: 141013516}
@@ -1352,7 +1357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 613798511}
-        m_MethodName: DisplayNextSentence
+        m_MethodName: next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1882,7 +1887,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 613798511}
-        m_MethodName: DisplayNextSentence
+        m_MethodName: next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
