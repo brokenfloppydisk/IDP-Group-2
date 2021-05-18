@@ -8,20 +8,15 @@ public class GameTimer : MonoBehaviour
     public bool timerActive;
     public Text text;
     private float startTime {get; set;}
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         timerActive = true;   
     }
 
     void Awake() {
-        startTime = Time.time;
+        startTime = FindObjectOfType<CameraScript>().startTime;
         DontDestroyOnLoad(this.gameObject);
     }
-
-    // Update is called once per frame
     void Update()
     {
         float totalSeconds = Time.time-startTime;

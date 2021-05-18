@@ -22,7 +22,6 @@ public class RomanNum : MonoBehaviour
     };
     public static string ToRoman(int number) {
         StringBuilder roman = new StringBuilder();
-
         foreach (var item in RomanDict) {
             while (number >= item.Key) {
                 roman.Append(item.Value);
