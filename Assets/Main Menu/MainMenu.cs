@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public string newGameScene;
     public void NewGame(){
+        FindObjectOfType<CameraScript>().startTime = Time.time;
         SceneManager.LoadScene(newGameScene);
     }
     public void QuitGame(){
