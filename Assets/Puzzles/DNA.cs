@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DNA : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{  
+    public GameObject lockPuzzle;
+    
+    public void openLockMenu() {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    }
+    public void closeLockMenu() {
+
+    }
+    public void openLock() {
+
     }
 }
