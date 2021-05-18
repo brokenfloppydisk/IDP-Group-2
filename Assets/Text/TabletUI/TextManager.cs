@@ -24,7 +24,7 @@ public class TextManager : MonoBehaviour
         bodyText.fontSize = textObj.fontSize;
         bodyText.font = textObj.font;
         titleText.text = textObj.title;
-        FindObjectOfType<Translator>().UpdateFontSize();
+        //GlobalVariables.translator.UpdateFontSize();
         sentences.Clear();
         for (int i = 0; i < textObj.sentences.Length; i++) {
             string sentence_ = textObj.sentences[i];
