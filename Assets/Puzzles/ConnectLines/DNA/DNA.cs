@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
 public class DNA : HotWirePuzzle
 {
     public List<Animator> animators;
@@ -21,8 +20,6 @@ public class DNA : HotWirePuzzle
         clearLineRenderers();
         StartCoroutine(moveLineRenderers());
         setAnimationParam("LockOpen", true);
-        
-
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {
