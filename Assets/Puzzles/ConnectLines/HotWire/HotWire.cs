@@ -12,46 +12,36 @@ public class HotWire : HotWirePuzzle
     void Awake() {
         vars = FindObjectOfType<CameraScript>();
     }
-    public void openPuzzle()
-    {
+    public void openPuzzle() {
         puzzleReset();
         setAnimationParam("PuzzleOpen",true);
     }
-    public void closePuzzle()
-    {
+    public void closePuzzle() {
         puzzleReset();
         setAnimationParam("PuzzleOpen",false);
     }
-    public void activateShip()
-    {
+    public void activateShip() {
         
         enterButton.interactable = false;
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
     }
-    public void setAnimationParam(string param, bool value)
-    {
-        for (int i = 0; i < animators.Count; i++)
-        {
+    public void setAnimationParam(string param, bool value) {
+        for (int i = 0; i < animators.Count; i++) {
             animators[i].SetBool(param, value);
         }
     }
 
-    public void checkCompletion()
-    {
-        if (puzzleComplete != true)
-        {
+    public void checkCompletion() {
+        if (puzzleComplete != true) {
             int successes = 0;
-            for (int i = 0; i < topWires.Count; i++)
-            {
+            for (int i = 0; i < topWires.Count; i++) {
                 if (topWires[i].success) { successes++; }
             }
-            if (successes >= topWires.Count)
-            {
+            if (successes >= topWires.Count) {
                 activateShip();
                 puzzleComplete = true;
             }
         }
-
     }
 }
