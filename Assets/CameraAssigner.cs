@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasScript : MonoBehaviour
+public class CameraAssigner : MonoBehaviour
 {
     public Canvas canvas;
 
