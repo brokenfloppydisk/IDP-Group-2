@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 [System.Serializable]
 public class HotWirePuzzle : MonoBehaviour {
+    public Button resetButton;
+    public Button enterButton;
     public List<Wire> nonHoveredWires = new List<Wire>();
     public List<Wire> bottomWires = new List<Wire>();
     public List<Wire> topWires = new List<Wire>();
@@ -28,5 +30,11 @@ public class HotWirePuzzle : MonoBehaviour {
         nonHoveredWires.Clear();
         StopAllCoroutines();
 
+    }
+    public void clearLineRenderers() {
+        foreach (Wire wire in bottomWires) {
+            wire.lineRenderer.SetPosition(0, Vector3.zero);
+            wire.lineRenderer.SetPosition(1, Vector3.zero);
+        }
     }
 }
