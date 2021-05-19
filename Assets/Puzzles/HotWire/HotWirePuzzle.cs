@@ -11,26 +11,22 @@ public class HotWirePuzzle : MonoBehaviour {
     public Wire currentDraggedWire;
     public Wire currentHoveredWire;
 
-    private void Awake() {
-        StartCoroutine(CheckCompletion());
-    }
-    private void Update() {
-
-    }
-
-    public IEnumerator CheckCompletion() {
-        while (!puzzleComplete) {
-            int successes = 0;
-            for (int i = 0; i < topWires.Count; i++) {
-                if (topWires[i].success) { successes++; }
-            }
-            if (successes >= topWires.Count) {
-                Debug.Log("Success"); //Need to implement in playerstats class
-                puzzleComplete = true;
-                this.StopCoroutine(CheckCompletion());
-            }
-            yield return new WaitForSeconds(0.5f);
+    public void puzzleReset()
+    {
+        puzzleComplete = false;
+        for (int i = 0; i < bottomWires.Count; i++)
+        {
+            bottomWires[i].success = false;
+            topWires[i].success = false;
+            bottomWires[i].connected = false;
+            topWires[i].connected = false;
+            bottomWires[i].lineRenderer.SetPosition(0, Vector3.zero);
+            bottomWires[i].lineRenderer.SetPosition(1, Vector3.zero);
         }
-    }
+        currentHoveredWire = null;
+        currentDraggedWire = null;
+        nonHoveredWires.Clear();
+        StopAllCoroutines();
 
+    }
 }
