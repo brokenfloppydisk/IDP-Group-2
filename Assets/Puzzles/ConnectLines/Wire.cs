@@ -6,18 +6,19 @@ using UnityEngine.UI;
 
 public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
     public LineRenderer lineRenderer;
-    private Canvas canvas;
+    
     public bool isBeingDragged = false;
     private HotWirePuzzle puzzle;
     public int matchIndex;
     public bool success = false;
     public bool connected = false;
+    [System.NonSerialized]
+    public Canvas canvas;
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
         canvas = GetComponentInParent<Canvas>();
         puzzle = GetComponentInParent<HotWirePuzzle>();
     }
-
     void Update() {
         if (isBeingDragged) {
             Vector2 movePos;
