@@ -4395,7 +4395,8 @@ MonoBehaviour:
   statusLightStates:
   - {fileID: 21300000, guid: 44d426d83b29bf043ba840d0cc991bcc, type: 3}
   - {fileID: 21300000, guid: 2b5ce772a86334444ae5a3a740cf60c2, type: 3}
-  animators: []
+  animators:
+  - {fileID: 1506525011}
 --- !u!1 &1187889115
 GameObject:
   m_ObjectHideFlags: 0
