@@ -822,6 +822,7 @@ RectTransform:
   - {fileID: 2050678594}
   - {fileID: 1576191978}
   - {fileID: 1718767632}
+  - {fileID: 437830605}
   m_Father: {fileID: 1438211881}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1306,6 +1307,201 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!1 &437830604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437830605}
+  - component: {fileID: 437830610}
+  - component: {fileID: 437830609}
+  - component: {fileID: 437830608}
+  - component: {fileID: 437830607}
+  - component: {fileID: 437830606}
+  m_Layer: 5
+  m_Name: CipherGuideButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &437830605
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8316243, y: 1.8316243, z: 1.8316243}
+  m_Children:
+  - {fileID: 2105378451}
+  m_Father: {fileID: 218538244}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -663, y: 482}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &437830606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b13cbff88a65c4cbbe56b49e6bf4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ciphersButton: {fileID: 437830604}
+--- !u!114 &437830607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd22c7904b6382489a6c347b085a61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textInterface:
+    title: CIPHERS GUIDE
+    sentences:
+    - 'CIPHERS: ANTHROPOGENIC ENCRYPTION'
+    - ENCRYPTION HAS EXISTED FOR RELATIVELY LONG, AND IT IS INTEGRAL TO EVIENS SOCIETY
+      AS WE KNOW IT. HOWEVER, HUMANS HAVE ALSO DEVELOPED THEIR OWN ANTHROPOGENIC
+      CIPHERS, WHICH WE HAVE BEGUN TO IMPLEMENT INTO OUR DAILY LIVES. HERE ARE SOME
+      OF THE MOST IMPORTANT CIPHERS TO RECOGNIZE.
+    - 'A ONE TIME PAD IS A CIPHER THAT INVOLVES SHIFTING EACH LETTER IN A CODE BY
+      AN AMOUNT DEFINED IN THE KEY.
+
+
+      TO DECODE A ONE TIME PAD, FIRST CONVERT
+      THE KEY INTO LETTERS.
+
+      (A = I, B = II, ETC.)
+
+
+      THEN, CONVERT THE
+      ENCRYPTED MESSAGE IN THE SAME WAY.
+
+      FINALLY, SUBRACT THE CORRESPONDING
+      KEY VALUE FROM EACH MESSAGE VALUE AND CONVERT THIS BACK INTO LETTERS.'
+    - 'A BOOK CIPHER IS A CIPHER THAT INVOLVES CONVERTING LETTERS FROM A BOOK INTO
+      A MESSAGE. EACH LETTER FOLLOWS THE FORM OF:
+
+      PAGE NUMBER, NUMBER OF THE
+      WORD ON THE PAGE, NUMBER OF THE LETTER IN THE WORD.
+
+      SO, (III, II, I)
+      WOULD BE THE FIRST LETTER OF THE SECOND WORD ON THE THIRD PAGE.'
+    - 'NOTE: NUMBERS, INCLUDING NUMERALS, DO NOT COUNT AS A WORD IN A BOOK CIPHER.'
+    - FOR PRACTICE, DECODE THE BOOK CIPHER (III, VIII, II) (IV, III, II) USING THIS
+      BOOK.
+    textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
+    fontSize: 65
+    titleFontSize: 100
+    font: {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
+--- !u!114 &437830608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 437830609}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 437830607}
+        m_MethodName: TriggerText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &437830609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.58272517, g: 0.8816328, b: 0.9150943, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2baab1a4aa7f3394ca32ef6a1c8d5504, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &437830610
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437830604}
+  m_CullTransparentMesh: 0
 --- !u!1 &498225913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,13 +2908,13 @@ MonoBehaviour:
 
       EXTREMELY EXPLOSIVE'
     - SUBTNT + SOLVENT = STRONG TNT
-    - "SOLVENT FORMULA\nEXTREMELY DANGEROUS \nDO NOT MAKE"
-    - 'ERROR RETRIEVING CONTENTS
+    - 'SOLVENT FORMULA
 
-      CORRUPTED DATA MARKED WITH ERROR
+      EXTREMELY EXPLOSIVE
 
-      VI
-      COII + VI HIIO -> ERROR + VI OII'
+      DO NOT MAKE'
+    - "ERROR RETRIEVING CONTENTS\nCORRUPTED DATA MARKED WITH \u2588\nVI COII + VI
+      HIIO -> \u2588\u2588\u2588 + VI OII"
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 75
     titleFontSize: 75
@@ -5739,6 +5935,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 315, y: 560}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2105378450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105378451}
+  - component: {fileID: 2105378453}
+  - component: {fileID: 2105378452}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2105378451
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105378450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437830605}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2105378452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105378450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 380501b5245134045ba6db2788df3f84, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: CIPHERS GUIDE
+--- !u!222 &2105378453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105378450}
+  m_CullTransparentMesh: 0
 --- !u!1 &2113134182
 GameObject:
   m_ObjectHideFlags: 0
