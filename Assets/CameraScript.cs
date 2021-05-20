@@ -5,6 +5,7 @@ public class CameraScript : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject translateButton;
+    public GameObject ciphersButton;
     public Translator translator;
     public float startTime = 0;
     public float endTime = 0;
