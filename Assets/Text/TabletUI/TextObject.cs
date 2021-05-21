@@ -11,6 +11,8 @@ public class TextObject
     public Color textColor;
     public int fontSize;
     public int titleFontSize;
-    public Font font;
+    public Font[] fonts;
+    public Color bgColor;
+    public bool multipleFonts;
     
 }
