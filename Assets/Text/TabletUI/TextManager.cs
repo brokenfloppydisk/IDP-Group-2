@@ -5,30 +5,39 @@ using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
     private Queue<string> sentences;
+    private Queue<Font> fontsQueue;
     public Text titleText;
     public Text bodyText;
+    public Image tabletBackground;
     public List<Animator> animators;
+    private TextObject textObject;
 
     // Start is called before the first frame update
     void Start() {
         sentences = new Queue<string>();
+        fontsQueue = new Queue<Font>();
     }
     public void StartText(TextObject textObj) {
         for (int i = 0; i < animators.Count; i++) {
             animators[i].SetBool("TabletOpen", true);
         }
+        textObject = textObj;
         titleText.fontSize = textObj.titleFontSize;
         titleText.color = textObj.textColor;
-        titleText.font = textObj.font;
+        titleText.font = textObj.fonts[0];
+        tabletBackground.color = textObj.bgColor;
         bodyText.color = textObj.textColor;
         bodyText.fontSize = textObj.fontSize;
-        bodyText.font = textObj.font;
+        bodyText.font = textObj.fonts[0];
         titleText.text = textObj.title;
-        //GlobalVariables.translator.UpdateFontSize();
         sentences.Clear();
         for (int i = 0; i < textObj.sentences.Length; i++) {
             string sentence_ = textObj.sentences[i];
             sentences.Enqueue(sentence_);
+            if (textObj.multipleFonts) {
+                Font font_ = textObj.fonts[i];
+                fontsQueue.Enqueue(font_);
+            }
         }
         next();
     }
@@ -39,6 +48,10 @@ public class TextManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
+        if (textObject.multipleFonts) {
+            Font font = fontsQueue.Dequeue();
+            bodyText.font = font;
+        }
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -48,9 +61,10 @@ public class TextManager : MonoBehaviour
         for (int i = 0; i < sentence_array.Length; i++) {
             char letter = sentence_array[i];
             bodyText.text += letter;
-            yield return null;
+            if (i%2 == 1) {
+                yield return null;
+            }
         }
-        
     }
 
     public void EndText() {

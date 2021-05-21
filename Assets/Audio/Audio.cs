@@ -20,6 +20,4 @@ public class Audio : MonoBehaviour
         audioSource.Play();
     }
 
-
-
 }

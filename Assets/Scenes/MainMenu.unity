@@ -851,7 +851,6 @@ GameObject:
   - component: {fileID: 1256103602}
   - component: {fileID: 1256103601}
   - component: {fileID: 1256103600}
-  - component: {fileID: 1256103605}
   - component: {fileID: 1256103604}
   m_Layer: 5
   m_Name: Canvas
@@ -957,25 +956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: StartRoom
---- !u!95 &1256103605
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256103599}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a4b7d5b5e9df4f488824fab1eb03814, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1312456329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,8 +1184,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1439527558}
   translateButton: {fileID: 0}
+  ciphersButton: {fileID: 0}
   translator: {fileID: 0}
   startTime: 0
+  endTime: 0
+  firstDoorExploded: 0
+  shipActivated: 0
 --- !u!1 &1502276379
 GameObject:
   m_ObjectHideFlags: 0

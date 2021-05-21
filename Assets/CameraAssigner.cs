@@ -5,10 +5,11 @@ using UnityEngine;
 public class CameraAssigner : MonoBehaviour
 {
     public Canvas canvas;
+    public GameObject canvasGameObj;
 
     void Start()
     {
-        canvas = gameObject.GetComponent<Canvas>();
+        canvas = canvasGameObj.GetComponent<Canvas>();
         canvas.worldCamera = FindObjectOfType<Camera>();
     }
 }
