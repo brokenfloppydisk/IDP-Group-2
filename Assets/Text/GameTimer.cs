@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 [System.Serializable]
 public class GameTimer : MonoBehaviour
 {
@@ -19,11 +20,11 @@ public class GameTimer : MonoBehaviour
     }
     void Update()
     {
-        float totalSeconds = Time.time-startTime;
+        float totalSeconds = Mathf.Round(Time.time-startTime);
         float seconds = totalSeconds % 60;
         int minutes = (int) (totalSeconds-seconds)/60;
         if(timerActive) {
-            text.text = "Time Elapsed: " + (minutes > 0 ? minutes.ToString() + ":" : "") + seconds.ToString((seconds < 10? "0#.00" : "#.00"));
+            text.text = "Time Elapsed: " + (minutes > 0 ? minutes.ToString() + ":" : "0:") + (seconds < 10 ? "0" : "") + seconds.ToString();
         }
         
     }
