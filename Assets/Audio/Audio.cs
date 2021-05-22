@@ -12,11 +12,11 @@ public class Audio : MonoBehaviour
 
     public float volume = 0.5f;
 
-    void playOneShot() {
+    public void playOneShot() {
         audioSource.PlayOneShot(clip, volume);
     }
 
-    void play() {
+    public void play() {
         audioSource.Play();
     }
 

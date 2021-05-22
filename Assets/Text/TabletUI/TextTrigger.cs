@@ -5,8 +5,13 @@ using UnityEngine;
 public class TextTrigger : MonoBehaviour
 {
     public TextObject textInterface = new TextObject();
+    private TextManager textManager;
+    private void Awake() {
+        textManager = FindObjectOfType<TextManager>();
+    }
     public void TriggerText(){
-        FindObjectOfType<TextManager>().StartText(textInterface);
+        textManager.StartText(textInterface);
+        textManager.translated = false;
     }
     
 }

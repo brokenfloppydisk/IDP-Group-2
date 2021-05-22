@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class DNA : HotWirePuzzle
+public class DNA : ConnectPuzzle
 {
     public List<Animator> animators;
     public void openLockMenu() {
         puzzleReset();
         setAnimationParam("PuzzleOpen", true);
-
     }
     public void closeLockMenu() {
         clearLineRenderers();
@@ -20,6 +19,7 @@ public class DNA : HotWirePuzzle
         clearLineRenderers();
         StartCoroutine(moveLineRenderers());
         setAnimationParam("LockOpen", true);
+        setAnimationParam("PuzzleOpen", true);
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {
@@ -29,10 +29,10 @@ public class DNA : HotWirePuzzle
     public void checkCompletion() {
         if (puzzleComplete != true){
             int successes = 0;
-            for (int i = 0; i < topWires.Count; i++) {
-                if (topWires[i].success) { successes++; }
+            for (int i = 0; i < topNodes.Count; i++) {
+                if (topNodes[i].success) { successes++; }
             }
-            if (successes >= topWires.Count) {
+            if (successes >= topNodes.Count) {
                 openLock();
                 puzzleComplete = true;
             }
@@ -40,18 +40,18 @@ public class DNA : HotWirePuzzle
     }
     IEnumerator moveLineRenderers() {
         for (int i=0; i <= 1; i++) {
-            List<Wire> possibleTopWires = topWires.ToList();
+            List<Node> possibleTopWires = topNodes.ToList();
             if (i==0) {
-                foreach (Wire wire in bottomWires) {
+                foreach (Node wire in bottomNodes) {
                     wire.lineRenderer.SetPosition(0,Vector3.zero);
                     wire.lineRenderer.SetPosition(1,Vector3.zero);
                 }
                 yield return new WaitForSeconds(0.45f);
             } else {
-                foreach (Wire wire in bottomWires)
+                foreach (Node wire in bottomNodes)
                 {
                     wire.lineRenderer.SetPosition(0, wire.transform.position);
-                    foreach (Wire otherWire in possibleTopWires)
+                    foreach (Node otherWire in possibleTopWires)
                     {
                         if (otherWire.matchIndex == wire.matchIndex)
                         {

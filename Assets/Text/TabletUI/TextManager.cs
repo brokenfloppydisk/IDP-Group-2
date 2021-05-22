@@ -11,6 +11,8 @@ public class TextManager : MonoBehaviour
     public Image tabletBackground;
     public List<Animator> animators;
     private TextObject textObject;
+    [System.NonSerialized]
+    public bool translated;
 
     // Start is called before the first frame update
     void Start() {
