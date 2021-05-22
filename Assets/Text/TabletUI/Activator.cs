@@ -2,20 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Activator : Translator
+public class Activator : MonoBehaviour
 {
-    public GameObject activator;    
-    private TextTrigger textTrigger;
-    public bool usingTranslator;
+    public int index;
     public void Activate() {
-        if (usingTranslator) {
-            FindObjectOfType<CameraScript>().translateButton.SetActive(true);
-        }
-        else {
-            FindObjectOfType<CameraScript>().ciphersButton.SetActive(true);
-        }
-        textTrigger = GameObject.FindObjectOfType<TextTrigger>();
-        textTrigger.TriggerText();
-        activator.SetActive(false);
+        FindObjectOfType<CameraScript>().hiddenButtons[index].SetActive(true);
+        GameObject.FindObjectOfType<TextTrigger>().TriggerText();
+        gameObject.SetActive(false);
     }
 }
