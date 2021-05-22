@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInterface:
-    title: MEDICAL RECORDS
+    titles:
+    - MEDICAL RECORDS
     sentences:
     - 'PATIENT XXXI MEDICAL RECORDS
 
@@ -309,8 +310,7 @@ MonoBehaviour:
     titleFontSize: 75
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
-    bgColor: {r: 0.48235294, g: 0.7176471, b: 0.91764706, a: 0.9019608}
-    multipleFonts: 0
+    bgColor: {r: 0.63529414, g: 0.3137255, b: 0.105882354, a: 0.9019608}
 --- !u!114 &408536383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48235294, g: 0.7176471, b: 0.91764706, a: 0.9019608}
+  m_Color: {r: 0.63529414, g: 0.3137255, b: 0.105882354, a: 0.9019608}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -474,17 +474,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInterface:
-    title: UNIVERSAL TRANSLATOR INSTALLED
+    titles:
+    - ' '
+    - UNIVERSAL TRANSLATOR INSTALLED
     sentences:
-    - 
+    - ' '
     - PRESS THE "TRANSLATE" BUTTON TO TRANSLATE FROM EVIENS TO ENGLISH
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 100
     titleFontSize: 75
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
-    bgColor: {r: 0.48235294, g: 0.7176471, b: 0.91764706, a: 0.9019608}
-    multipleFonts: 0
+    bgColor: {r: 0.11764706, g: 0.6313726, b: 0.11764706, a: 0.9019608}
 --- !u!114 &887113826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,10 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff0c74472fbd5649a79d15adfec5ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: []
-  font: {fileID: 0}
-  activator: {fileID: 887113823}
-  usingTranslator: 1
+  index: 0
 --- !u!114 &887113827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +707,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInterface:
-    title: MOST-RECENT SHIP LOGS
+    titles:
+    - MESSAGE FROM EARTH DISPATCH DISTRICT
+    - ENCRYPTED MESSAGE (ONE TIME PAD)
+    - ENCRYPTED MESSAGE (BOOK CIPHER)
     sentences:
     - 'WARNING: UNENCRYPED MESSAGE MAY HAVE BEEN COMPROMISED.
 
@@ -749,8 +750,7 @@ MonoBehaviour:
     titleFontSize: 75
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
-    bgColor: {r: 0.48235294, g: 0.7176471, b: 0.91764706, a: 0.9019608}
-    multipleFonts: 0
+    bgColor: {r: 0.6320754, g: 0.31155488, b: 0.10435206, a: 0.9019608}
 --- !u!114 &902064735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,8 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c3efd7356f6484c906abd4410cef71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 10
-  image: {fileID: 1936992957}
+  cycleSeconds: 0
   spritesList:
   - {fileID: 21300000, guid: 846bb82cfac33374f9907ef9330e0f0c, type: 3}
   - {fileID: 21300000, guid: e887f6b14a61e0c40a25b27e024ddb6a, type: 3}
@@ -1222,7 +1221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInterface:
-    title: CIPHERS GUIDE INSTALLED
+    titles:
+    - ' '
+    - CIPHERS GUIDE INSTALLED
     sentences:
     - 
     - PRESS THE "CIPHERS GUIDE" BUTTON TO READ THIS E-BOOK.
@@ -1231,8 +1232,7 @@ MonoBehaviour:
     titleFontSize: 75
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
-    bgColor: {r: 0.48235294, g: 0.7176471, b: 0.91764706, a: 0.9019608}
-    multipleFonts: 0
+    bgColor: {r: 0.11627804, g: 0.6320754, b: 0.116289355, a: 0.9019608}
 --- !u!114 &2105378453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,10 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff0c74472fbd5649a79d15adfec5ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: []
-  font: {fileID: 0}
-  activator: {fileID: 2105378450}
-  usingTranslator: 0
+  index: 1
 --- !u!114 &2105378454
 MonoBehaviour:
   m_ObjectHideFlags: 0
