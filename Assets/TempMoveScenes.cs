@@ -7,7 +7,6 @@ public class TempMoveScenes : MonoBehaviour
 {
     public List<string> scenes = new List<string>();
     private int index = 0;
-
     public void SwitchScenes() {
         SceneManager.LoadScene(scenes[(index +1 % (scenes.Count))-1]);
         index ++;

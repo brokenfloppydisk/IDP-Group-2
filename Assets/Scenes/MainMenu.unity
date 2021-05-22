@@ -930,7 +930,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &1256103603
 RectTransform:
@@ -1196,8 +1196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1439527558}
-  translateButton: {fileID: 0}
-  ciphersButton: {fileID: 0}
   translator: {fileID: 0}
   startTime: 0
   endTime: 0

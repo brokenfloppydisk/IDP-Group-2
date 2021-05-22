@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HotWire : HotWirePuzzle
-{
-    private CameraScript vars;
+public class HotWire : ConnectPuzzle {
+    private CameraScript cameraScript;
     public Image statusLight;
     public Sprite[] statusLightStates;
     public List<Animator> animators;
-    void Awake() {
-        vars = FindObjectOfType<CameraScript>();
+    private void Awake() {
+        cameraScript = FindObjectOfType<CameraScript>();
     }
     public void openPuzzle() {
         puzzleReset();
@@ -21,7 +20,6 @@ public class HotWire : HotWirePuzzle
         setAnimationParam("PuzzleOpen",false);
     }
     public void activateShip() {
-        
         enterButton.interactable = false;
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
@@ -31,14 +29,13 @@ public class HotWire : HotWirePuzzle
             animators[i].SetBool(param, value);
         }
     }
-
     public void checkCompletion() {
         if (puzzleComplete != true) {
             int successes = 0;
-            for (int i = 0; i < topWires.Count; i++) {
-                if (topWires[i].success) { successes++; }
+            for (int i = 0; i < topNodes.Count; i++) {
+                if (topNodes[i].success) { successes++; }
             }
-            if (successes >= topWires.Count) {
+            if (successes >= topNodes.Count) {
                 activateShip();
                 puzzleComplete = true;
             }

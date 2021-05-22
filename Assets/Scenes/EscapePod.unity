@@ -530,11 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 4
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &79511188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,11 +1084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 1
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &244246644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,11 +1480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 3
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &361990178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,11 +3095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 4
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &822278303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,11 +4417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 2
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &1081278918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,11 +4683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 1
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &1147414377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,20 +4777,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetButton: {fileID: 1622202912}
   enterButton: {fileID: 660076003}
-  nonHoveredWires: []
-  bottomWires:
+  bottomNodes:
   - {fileID: 233560812}
   - {fileID: 1052427735}
   - {fileID: 1786514559}
   - {fileID: 61229859}
-  topWires:
+  topNodes:
   - {fileID: 1346118712}
   - {fileID: 314067448}
   - {fileID: 726898062}
   - {fileID: 1124805333}
   puzzleComplete: 0
-  currentDraggedWire: {fileID: 0}
-  currentHoveredWire: {fileID: 0}
   statusLight: {fileID: 373641377}
   statusLightStates:
   - {fileID: 21300000, guid: 44d426d83b29bf043ba840d0cc991bcc, type: 3}
@@ -5188,11 +5173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 2
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &1428593567
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,11 +6034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ab90192df36847869294d5951aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
-  isBeingDragged: 0
   matchIndex: 3
-  success: 0
   connected: 0
+  success: 0
 --- !u!1 &1796650646
 GameObject:
   m_ObjectHideFlags: 0
