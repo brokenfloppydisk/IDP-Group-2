@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class TextObject
 {
-    public string title;
+    public string[] titles;
     [TextArea(3,20)]
     public string[] sentences;
     public Color textColor;
@@ -13,6 +13,4 @@ public class TextObject
     public int titleFontSize;
     public Font[] fonts;
     public Color bgColor;
-    public bool multipleFonts;
-    
 }

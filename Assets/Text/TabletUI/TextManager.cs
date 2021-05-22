@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
     private Queue<string> sentences;
+    private Queue<string> titlesQueue;
     private Queue<Font> fontsQueue;
     public Text titleText;
     public Text bodyText;
@@ -13,49 +14,64 @@ public class TextManager : MonoBehaviour
     private TextObject textObject;
     [System.NonSerialized]
     public bool translated;
-
+    [System.NonSerialized]
+    private CameraScript cameraScript;
     // Start is called before the first frame update
     void Start() {
+        cameraScript = FindObjectOfType<CameraScript>();
         sentences = new Queue<string>();
+        titlesQueue = new Queue<string>();
         fontsQueue = new Queue<Font>();
     }
-    public void StartText(TextObject textObj) {
+    public void StartText(TextObject textObject) {
+        sentences = new Queue<string>();
+        titlesQueue = new Queue<string>();
+        fontsQueue = new Queue<Font>();
         for (int i = 0; i < animators.Count; i++) {
             animators[i].SetBool("TabletOpen", true);
         }
-        textObject = textObj;
-        titleText.fontSize = textObj.titleFontSize;
-        titleText.color = textObj.textColor;
-        titleText.font = textObj.fonts[0];
-        tabletBackground.color = textObj.bgColor;
-        bodyText.color = textObj.textColor;
-        bodyText.fontSize = textObj.fontSize;
-        bodyText.font = textObj.fonts[0];
-        titleText.text = textObj.title;
+        this.textObject = textObject;
+        cameraScript.hiddenButtons[0].GetComponent<Image>().color = textObject.bgColor;
+        cameraScript.hiddenButtons[1].GetComponent<Image>().color = textObject.bgColor;
+        titleText.fontSize = textObject.titleFontSize;
+        titleText.color = textObject.textColor;
+        titleText.font = textObject.fonts[0];
+        tabletBackground.color = textObject.bgColor;
+        bodyText.color = textObject.textColor;
+        bodyText.fontSize = textObject.fontSize;
+        bodyText.font = textObject.fonts[0];
+        titleText.text = textObject.titles[0];
         sentences.Clear();
-        for (int i = 0; i < textObj.sentences.Length; i++) {
-            string sentence_ = textObj.sentences[i];
-            sentences.Enqueue(sentence_);
-            if (textObj.multipleFonts) {
-                Font font_ = textObj.fonts[i];
-                fontsQueue.Enqueue(font_);
+        for (int i = 0; i < textObject.sentences.Length; i++) {
+            sentences.Enqueue(textObject.sentences[i]);
+        }
+        if (textObject.titles.Length > 1){
+            for (int i = 0; i < textObject.titles.Length; i++) {
+                titlesQueue.Enqueue(textObject.titles[i]);
+            }
+        }
+        if (textObject.fonts.Length > 1) {
+            for (int i = 0; i < textObject.fonts.Length; i++) {
+                fontsQueue.Enqueue(textObject.fonts[i]);
             }
         }
         next();
     }
-
     public void next() {
         if (sentences.Count == 0) {
             EndText();
             return;
         }
-        string sentence = sentences.Dequeue();
-        if (textObject.multipleFonts) {
+        if (fontsQueue.Count != 0) {
             Font font = fontsQueue.Dequeue();
             bodyText.font = font;
+            titleText.font = font;
+        }
+        if (titlesQueue.Count != 0) {
+            titleText.text = titlesQueue.Dequeue();
         }
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentences.Dequeue()));
     }
     IEnumerator TypeSentence(string sentence) {
         bodyText.text = "";
@@ -68,7 +84,6 @@ public class TextManager : MonoBehaviour
             }
         }
     }
-
     public void EndText() {
         for (int i = 0; i < animators.Count; i++) {
             animators[i].SetBool("TabletOpen", false);
