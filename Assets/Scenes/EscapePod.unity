@@ -1795,6 +1795,7 @@ GameObject:
   - component: {fileID: 449025127}
   - component: {fileID: 449025126}
   - component: {fileID: 449025125}
+  - component: {fileID: 449025129}
   m_Layer: 5
   m_Name: KeypadCanvas
   m_TagString: Untagged
@@ -1850,7 +1851,7 @@ Canvas:
   m_GameObject: {fileID: 449025124}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1882,6 +1883,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &449025129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449025124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474b34fb65d81af4891e10afb38404f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &539375934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,7 +2315,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2344,8 +2357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474b34fb65d81af4891e10afb38404f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  canvasGameObj: {fileID: 615725074}
 --- !u!1 &622521549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,8 +3296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474b34fb65d81af4891e10afb38404f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  canvasGameObj: {fileID: 831832340}
 --- !u!1 &887552876
 GameObject:
   m_ObjectHideFlags: 0
