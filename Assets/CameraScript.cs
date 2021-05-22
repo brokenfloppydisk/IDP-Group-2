@@ -4,22 +4,14 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public Camera mainCamera;
-    public GameObject translateButton;
-    public GameObject ciphersButton;
+    [System.NonSerialized]
+    public GameObject[] hiddenButtons = {null, null};
     public Translator translator;
     public float startTime = 0;
     public float endTime = 0;
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
-    void Awake()
-    {
+    private void Awake() {
         DontDestroyOnLoad(this);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
