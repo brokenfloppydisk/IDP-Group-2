@@ -499,6 +499,7 @@ MonoBehaviour:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     - {fileID: 12800000, guid: 380501b5245134045ba6db2788df3f84, type: 3}
     bgColor: {r: 0, g: 0.29803923, b: 0.6313726, a: 0.9019608}
+  textManager: {fileID: 0}
 --- !u!95 &171507797
 Animator:
   serializedVersion: 3
@@ -1339,6 +1340,7 @@ MonoBehaviour:
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     bgColor: {r: 0.08139017, g: 0.5566038, b: 0.36482617, a: 0.9019608}
+  textManager: {fileID: 0}
 --- !u!114 &437830608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,6 +1900,8 @@ MonoBehaviour:
   animators:
   - {fileID: 1128527126}
   - {fileID: 141013516}
+  animatorBoolName: TabletOpen
+  usingAnimators: 1
 --- !u!1 &637791840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3044,7 @@ MonoBehaviour:
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     bgColor: {r: 0, g: 0.29803923, b: 0.6313726, a: 0.9019608}
+  textManager: {fileID: 0}
 --- !u!95 &1061875715
 Animator:
   serializedVersion: 3
@@ -4943,6 +4948,7 @@ MonoBehaviour:
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     bgColor: {r: 0, g: 0.29744723, b: 0.6320754, a: 0.9019608}
+  textManager: {fileID: 0}
 --- !u!114 &1594879556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5088,9 +5094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text:
-  - {fileID: 1997629166}
-  - {fileID: 2015915246}
   - {fileID: 1747766215}
+  - {fileID: 2015915246}
   font: {fileID: 12800000, guid: 359c8f041a4546048bc7e865912ad2a8, type: 3}
 --- !u!114 &1718767634
 MonoBehaviour:
@@ -6067,8 +6072,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -61.3}
-  m_SizeDelta: {x: 1620, y: 778.58057}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: 1620, y: 779}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015915246
 MonoBehaviour:

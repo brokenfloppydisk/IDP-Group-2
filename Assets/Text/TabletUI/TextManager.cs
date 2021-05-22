@@ -12,10 +12,11 @@ public class TextManager : MonoBehaviour
     public Image tabletBackground;
     public List<Animator> animators;
     private TextObject textObject;
-    [System.NonSerialized]
-    public bool translated;
-    [System.NonSerialized]
     private CameraScript cameraScript;
+    [SerializeField]
+    private string animatorBoolName;
+    [SerializeField]
+    private bool usingAnimators;
     // Start is called before the first frame update
     void Start() {
         cameraScript = FindObjectOfType<CameraScript>();
@@ -27,8 +28,10 @@ public class TextManager : MonoBehaviour
         sentences = new Queue<string>();
         titlesQueue = new Queue<string>();
         fontsQueue = new Queue<Font>();
-        for (int i = 0; i < animators.Count; i++) {
-            animators[i].SetBool("TabletOpen", true);
+        if (usingAnimators) {
+            for (int i = 0; i < animators.Count; i++) {
+                animators[i].SetBool(animatorBoolName, true);
+            }
         }
         this.textObject = textObject;
         cameraScript.hiddenButtons[0].GetComponent<Image>().color = textObject.bgColor;
@@ -85,8 +88,11 @@ public class TextManager : MonoBehaviour
         }
     }
     public void EndText() {
-        for (int i = 0; i < animators.Count; i++) {
-            animators[i].SetBool("TabletOpen", false);
+        if (usingAnimators) {
+            for (int i = 0; i < animators.Count; i++) {
+                animators[i].SetBool(animatorBoolName, false);
+            } 
         }
+        
     }
 }

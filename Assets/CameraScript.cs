@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     public Translator translator;
     public float startTime = 0;
     public float endTime = 0;
+    public float hintPenalty = 0;
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
     private void Awake() {
