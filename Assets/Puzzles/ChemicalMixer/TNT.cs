@@ -7,12 +7,17 @@ public class TNT : MonoBehaviour
     public Animator animator;
     public bool selected;
     public GameObject door;
-    public Sprite[] arrowSprites;
-    public void explodeDoor() {
+    public void ExplodeDoor() {
         if (selected) {
             animator.SetBool("TNTUsed",true);
             door.SetActive(false);
+            StartCoroutine(SetArrowActive());
+            FindObjectOfType<CameraScript>().firstDoorExploded = true;
         }
+    }
+    public void ReturnToRoom() {
+        door.SetActive(false);
+        gameObject.GetComponent<Activator>().Activate();
     }
     public void ClickTnt() {
         if (selected) {
@@ -21,19 +26,8 @@ public class TNT : MonoBehaviour
             selected = true;
         }
     }
-    private IEnumerable setArrowActive() {
+    private IEnumerator SetArrowActive() {
         yield return new WaitForSeconds(1);
         gameObject.GetComponent<Activator>().Activate();
-    }
-    private IEnumerable flashingArrow() {
-        Image arrow = FindObjectOfType<CameraScript>().hiddenButtons[2].GetComponent<Image>();
-        int i = 0;
-        while (true) {
-            arrow.sprite = arrowSprites[i%2];
-            i++;
-            yield return new WaitForSeconds(0.5f);
-        }
-        
-        
     }
 }
