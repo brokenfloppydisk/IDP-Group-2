@@ -25,9 +25,4 @@ public class ThoughtsTrigger : MonoBehaviour
             Trigger();
         }
     }
-    private void OnMouseExit() {
-        if (hover) {
-            tManager.End();
-        }
-    }
 }
