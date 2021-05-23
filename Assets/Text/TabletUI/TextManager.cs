@@ -78,9 +78,9 @@ public class TextManager : MonoBehaviour
     }
     IEnumerator TypeSentence(string sentence) {
         bodyText.text = "";
-        char[] sentence_array = sentence.ToCharArray();
-        for (int i = 0; i < sentence_array.Length; i++) {
-            char letter = sentence_array[i];
+        char[] _sentence_array = sentence.ToCharArray();
+        for (int i = 0; i < _sentence_array.Length; i++) {
+            char letter = _sentence_array[i];
             bodyText.text += letter;
             if (i%2 == 1) {
                 yield return null;
