@@ -21,6 +21,9 @@ public class RomanNum : MonoBehaviour
         { 1, "I"}
     };
     public static string ToRoman(int number) {
+        if (number == 0) {
+            return "Z";
+        }
         StringBuilder roman = new StringBuilder();
         foreach (var item in RomanDict) {
             while (number >= item.Key) {

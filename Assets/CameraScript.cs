@@ -5,7 +5,7 @@ public class CameraScript : MonoBehaviour
 {
     public Camera mainCamera;
     [System.NonSerialized]
-    public GameObject[] hiddenButtons = {null, null};
+    public GameObject[] hiddenButtons = {null, null, null};
     public Translator translator;
     public float startTime = 0;
     public float endTime = 0;
