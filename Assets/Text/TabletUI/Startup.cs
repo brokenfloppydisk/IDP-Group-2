@@ -5,7 +5,7 @@ using UnityEngine;
 public class Startup : MonoBehaviour
 {
     public int index;
-    private void Awake(){
+    private void Start(){
         FindObjectOfType<CameraScript>().hiddenButtons[index] = gameObject;
         gameObject.SetActive(false);
     }

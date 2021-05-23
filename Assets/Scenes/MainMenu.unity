@@ -969,6 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: StartRoom
+  newGame: 1
 --- !u!1 &1312456329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: 
+  newGame: 0
 --- !u!114 &1801967331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,7 +1627,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1256103604}
-        m_MethodName: NewGame
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
