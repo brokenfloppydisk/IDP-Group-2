@@ -6,6 +6,8 @@ public class ThoughtsTrigger : MonoBehaviour
 {
     private ThoughtsManager tManager;
     [SerializeField]
+    private bool hover;
+    [SerializeField]
     [TextArea(2,3)]
     private string sentence;
     private void Awake() {
@@ -18,4 +20,14 @@ public class ThoughtsTrigger : MonoBehaviour
         tManager.DisplayThoughts(sentence);
     }
 
+    private void OnMouseEnter() {
+        if (hover) {
+            Trigger();
+        }
+    }
+    private void OnMouseExit() {
+        if (hover) {
+            tManager.End();
+        }
+    }
 }
