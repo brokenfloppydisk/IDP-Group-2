@@ -21,6 +21,15 @@ public class ChemicalMixerPuzzle : MonoBehaviour
     private void Awake() {
         normalColor = tntImage.color;
     }
+    private void Start() {
+        if (FindObjectOfType<CameraScript>().firstDoorExploded == true)
+        {
+            tntImage.gameObject.transform.position = new Vector3(0, -9000, 0);
+            FindObjectOfType<TNT>().ReturnToRoom();
+            tntDeskImage.SetActive(false);
+            GUIAnimator.SetBool("PuzzleAlreadyFinished", true);
+        }
+    }
     public void checkComplete() {
         int successes = 0;
         if (tntInCup) {
@@ -51,6 +60,9 @@ public class ChemicalMixerPuzzle : MonoBehaviour
             tntSelected = false;
             tntImage.color = normalColor;
             tntImage.gameObject.transform.position += new Vector3(-115,45,0);
+            tntDeskImage.gameObject.transform.position = new Vector3(193,-32,0);
+            tntDeskImage.gameObject.transform.rotation = new Quaternion(0,-0.0180719f,0,0.9998367f);
+            tntDeskImage.gameObject.transform.localScale = new Vector3(0.4f,0.3f,1);
         }
         if (puzzleComplete) {
             GUIAnimator.SetBool("TNTAcquired", true);
