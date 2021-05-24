@@ -10,6 +10,8 @@ public class Activator : MonoBehaviour
     private bool usingText;
     [SerializeField]
     private bool arrow;
+    [SerializeField]
+    private bool waitUntilDestroy;
     public void Activate() {
         FindObjectOfType<CameraScript>().hiddenButtons[index].SetActive(true);
         if (usingText) {
@@ -18,6 +20,15 @@ public class Activator : MonoBehaviour
         if (arrow) {
             FindObjectOfType<CameraScript>().hiddenButtons[2].GetComponent<Arrow>().Flash();
         }
+        if (waitUntilDestroy) {
+            StartCoroutine(WaitUntilDestroy());
+        } else {
+            gameObject.SetActive(false);
+        }
+        
+    }
+    IEnumerator WaitUntilDestroy() {
+        yield return new WaitForSeconds(3);
         gameObject.SetActive(false);
     }
 }
