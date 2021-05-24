@@ -13,6 +13,7 @@ public class CameraScript : MonoBehaviour
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
     public bool wiresConnected = false;
+    public bool[] roomVisited = {false,false,false, false};
     private void Awake() {
         DontDestroyOnLoad(this);
     }
