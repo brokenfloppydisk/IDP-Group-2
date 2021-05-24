@@ -8,9 +8,12 @@ public class SceneChanger : MonoBehaviour
     private string newGameScene;
     [SerializeField]
     private bool newGame;
+    [SerializeField]
     public void NextScene() {
         if (newGame) {
-            FindObjectOfType<CameraScript>().startTime = Time.time;
+            CameraScript _camera = FindObjectOfType<CameraScript>();
+            _camera.ResetVars();
+            _camera.startTime = Time.time;
         }
         SceneManager.LoadScene(newGameScene);
     }

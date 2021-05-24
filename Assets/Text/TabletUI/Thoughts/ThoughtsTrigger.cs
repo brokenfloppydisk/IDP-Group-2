@@ -6,10 +6,10 @@ public class ThoughtsTrigger : MonoBehaviour
 {
     private ThoughtsManager tManager;
     [SerializeField]
-    private bool hover;
+    private bool hover = true;
     [SerializeField]
     [TextArea(2,3)]
-    private string sentence;
+    public string sentence;
     private void Awake() {
         tManager = FindObjectOfType<ThoughtsManager>();
     }
