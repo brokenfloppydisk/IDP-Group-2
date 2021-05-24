@@ -29,6 +29,10 @@ public class HotWire : ConnectPuzzle {
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
         cameraScript.wiresConnected = true;
+        KeypadPuzzle _keypadPuzzle = FindObjectOfType<KeypadPuzzle>();
+        for (int i = 0; i < _keypadPuzzle.keypadImages.Count; i++) {
+            _keypadPuzzle.keypadImages[i].sprite = _keypadPuzzle.keypadSprites[0];
+        }
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {

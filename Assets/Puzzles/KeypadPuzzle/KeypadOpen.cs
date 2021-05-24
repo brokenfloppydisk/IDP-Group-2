@@ -21,6 +21,7 @@ public class KeypadOpen : MonoBehaviour
         puzzle.keypad.enterButton.interactable = !puzzle.successes[this.index];
         puzzle.keypad.resetButton.interactable = !puzzle.successes[this.index];
         puzzle.keypad.value = puzzle.values[index];
+        puzzle.keypad.coordinateLabel = puzzle.coordinates[index];
         if (puzzle.cameraScript.wiresConnected) {
             puzzle.keypad.outputText.text = RomanNum.ToRoman(puzzle.keypad.value);
             puzzle.keypad.sideText.text = puzzle.coordinates[index] + "-COORD";
