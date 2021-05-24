@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NumKey : Keypad
+public class NumKey : MonoBehaviour
 {
     private Keypad keypad;
     public int addValue; 
-    private void Awake() {
+    private void Start() {
         keypad = FindObjectOfType<Keypad>();
     }
     public void Add() {
         if (keypad.value < 1000) {
-            keypad.value = 10*keypad.value + addValue;
-            keypad.outputText.text = RomanNum.ToRoman(keypad.value); 
+            keypad.value = 10 * keypad.value + addValue;
+            keypad.UpdateDisplay();
         }
     }
 }

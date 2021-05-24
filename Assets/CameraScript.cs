@@ -12,6 +12,7 @@ public class CameraScript : MonoBehaviour
     public float hintPenalty = 0;
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
+    public bool wiresConnected = false;
     private void Awake() {
         DontDestroyOnLoad(this);
     }

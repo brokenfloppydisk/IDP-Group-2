@@ -10,6 +10,11 @@ public class HotWire : ConnectPuzzle {
     public List<Animator> animators;
     private void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
+        if (cameraScript.wiresConnected) {
+            enterButton.interactable = false;
+            resetButton.interactable = false;
+            statusLight.sprite = statusLightStates[1];
+        }
     }
     public void openPuzzle() {
         puzzleReset();
@@ -23,6 +28,7 @@ public class HotWire : ConnectPuzzle {
         enterButton.interactable = false;
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
+        cameraScript.wiresConnected = true;
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {
