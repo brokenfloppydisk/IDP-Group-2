@@ -18,6 +18,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
     public Color normalColor;
     public Animator GUIAnimator;
     public GameObject tntDeskImage;
+    public GameObject itemDescriptions;
     private void Awake() {
         normalColor = tntImage.color;
     }
@@ -61,7 +62,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
             tntImage.color = normalColor;
             tntImage.gameObject.transform.position += new Vector3(-115,45,0);
             tntDeskImage.gameObject.transform.position = new Vector3(193,-32,0);
-            tntDeskImage.gameObject.transform.rotation = new Quaternion(0,-0.0180719f,0,0.9998367f);
+            tntDeskImage.gameObject.transform.eulerAngles = new Vector3(0,25,0);
             tntDeskImage.gameObject.transform.localScale = new Vector3(0.4f,0.3f,1);
         }
         if (puzzleComplete) {
@@ -71,9 +72,11 @@ public class ChemicalMixerPuzzle : MonoBehaviour
         }
     }
     public void openPuzzle() {
+        itemDescriptions.gameObject.transform.position += new Vector3(0, -1000, 0);
         animator.SetBool("MixerOpen", true);
     }
     public void closePuzzle() {
+        itemDescriptions.gameObject.transform.position += new Vector3(0, 1000, 0);
         animator.SetBool("MixerOpen", false);
     }
 }

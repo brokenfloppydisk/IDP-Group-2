@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameTimer : MonoBehaviour
@@ -14,10 +15,15 @@ public class GameTimer : MonoBehaviour
     private CameraScript cameraScript;
     private void Start() {
         cameraScript = FindObjectOfType<CameraScript>();
+        if (cameraScript.roomVisited[0]) {
+            Destroy(this.gameObject);
+        } else {
+            DontDestroyOnLoad(this.gameObject);
+        }
         startTime = cameraScript.startTime;
         timeWithPenalty = startTime;
-        DontDestroyOnLoad(this.gameObject);
         timerActive = true;
+        SceneManager.LoadScene("LabCutscene");
     }
     private void Update() {
         float totalSeconds = Mathf.Round(Time.time-this.timeWithPenalty);

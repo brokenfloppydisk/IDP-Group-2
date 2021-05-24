@@ -93,6 +93,5 @@ public class TextManager : MonoBehaviour
                 animators[i].SetBool(animatorBoolName, false);
             } 
         }
-        
     }
 }

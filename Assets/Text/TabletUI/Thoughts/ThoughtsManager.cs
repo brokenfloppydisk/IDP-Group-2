@@ -7,14 +7,16 @@ public class ThoughtsManager : MonoBehaviour
 {
     [SerializeField]
     private int charsPerFrame;
+    [SerializeField]
     private Text thoughtsText;
     [SerializeField]
     private int fadeSpeed;
+    [SerializeField]
+    private int fadeSeconds;
     private Color thoughtsColor;
+    public GameObject thoughts;
     private void Awake() {
         thoughtsColor = thoughtsText.color;
-        DontDestroyOnLoad(thoughtsText.gameObject);
-        DontDestroyOnLoad(gameObject);
     }
     public void DisplayThoughts(string thought) {
         StopAllCoroutines();
@@ -28,12 +30,12 @@ public class ThoughtsManager : MonoBehaviour
         thoughtsText.color = thoughtsColor;
     }
     IEnumerator FadeThoughts() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         for (float i=1; i>=0; i-=1/fadeSpeed) {
             Color _color = thoughtsText.color;
             _color.a = i;
             thoughtsText.color = _color;
-            yield return new WaitForSeconds(1/fadeSpeed);
+            yield return new WaitForSeconds(fadeSeconds/fadeSpeed);
         }
         End();
     }
