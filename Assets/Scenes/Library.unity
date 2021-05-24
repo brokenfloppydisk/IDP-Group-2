@@ -1024,9 +1024,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00225f6dad8849445a2fc4c9d455700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutscene: {fileID: 936657124}
+  cutscenes:
+  - {fileID: 936657124}
   animator: {fileID: 936657126}
-  cameraScript: {fileID: 0}
+  index: 1
 --- !u!1 &1144687417
 GameObject:
   m_ObjectHideFlags: 0
