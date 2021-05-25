@@ -992,7 +992,7 @@ MonoBehaviour:
       BOOK.
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 65
-    titleFontSize: 100
+    titleFontSize: 70
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     bgColor: {r: 0.08139017, g: 0.5566038, b: 0.36482617, a: 0.9019608}
@@ -1811,7 +1811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1559764155
 MonoBehaviour:
   m_ObjectHideFlags: 0
