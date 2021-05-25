@@ -19,6 +19,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
     public Animator GUIAnimator;
     public GameObject tntDeskImage;
     public GameObject itemDescriptions;
+    public ThoughtsTrigger tntDescription;
     private void Awake() {
         normalColor = tntImage.color;
     }
@@ -69,6 +70,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
             GUIAnimator.SetBool("TNTAcquired", true);
             tntImage.gameObject.transform.position = new Vector3(0, -9000, 0);
             tntDeskImage.SetActive(false);
+            tntDescription.sentence = "According to the recipe, this explosive should now be strong enough...";
         }
     }
     public void openPuzzle() {

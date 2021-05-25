@@ -14,6 +14,7 @@ public class CameraScript : MonoBehaviour
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
     public bool wiresConnected = false;
+    public bool bayDoorOpen = false;
     public bool[] roomVisited = {false,false,false, false};
     private void Awake() {
         DontDestroyOnLoad(this);
@@ -27,6 +28,7 @@ public class CameraScript : MonoBehaviour
         firstDoorExploded = false;
         shipActivated = false;
         wiresConnected = false;
+        bayDoorOpen = false;
         roomVisited = new bool[] {false, false, false, false};
     }
 }

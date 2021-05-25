@@ -2375,6 +2375,7 @@ MonoBehaviour:
   GUIAnimator: {fileID: 936402697}
   tntDeskImage: {fileID: 1978396216}
   itemDescriptions: {fileID: 1654037472}
+  tntDescription: {fileID: 83551780}
 --- !u!1 &759158090
 GameObject:
   m_ObjectHideFlags: 0
