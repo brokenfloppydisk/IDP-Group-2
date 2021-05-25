@@ -12,6 +12,11 @@ public class Activator : MonoBehaviour
     private bool arrow;
     [SerializeField]
     private bool waitUntilDestroy;
+    public void Start() {
+        if (FindObjectOfType<CameraScript>().hiddenButtons[index].activeSelf) {
+            gameObject.SetActive(false);
+        }
+    }
     public void Activate() {
         FindObjectOfType<CameraScript>().hiddenButtons[index].SetActive(true);
         if (usingText) {
