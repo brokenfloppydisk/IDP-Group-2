@@ -11,7 +11,7 @@ public class Cutscene : MonoBehaviour
     public int index;
     public GameObject tablet;
     public bool useScale;
-    private string[] nextScenes = new string[] {"StartRoom","Library", "EscapePod"};
+    private string[] nextScenes = new string[] {"LabCutscene","StartRoom","Library","EscapePod","MainMenu"};
     private void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
         if (cameraScript.roomVisited[index]) {

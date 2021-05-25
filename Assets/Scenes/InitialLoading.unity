@@ -300,8 +300,11 @@ MonoBehaviour:
   translator: {fileID: 0}
   startTime: 0
   endTime: 0
-  hintPenalty: 0
   firstDoorExploded: 0
   shipActivated: 0
   wiresConnected: 0
+  bayDoorOpen: 0
   roomVisited: 00000000
+  times: []
+  penalties: []
+  hintsUsed: 
