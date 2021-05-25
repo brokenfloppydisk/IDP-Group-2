@@ -538,12 +538,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You wake up in a strange room that resembles a medical laboratory. Realizing
-    there is no way out except through a locked door, you look around for any clue
-    to escape.
+  m_Text: 'You and your friends wake up in a strange room that resembles a medical
+    laboratory. Realizing there is no way out except through a locked door, you look
+    around for any clue to escape.
 
-    You spot a blue, screen-like object on the ground. What could
-    its purpose be? '
+    You spot a blue, screen-like object on the
+    ground. What could its purpose be? '
 --- !u!222 &1223854125
 CanvasRenderer:
   m_ObjectHideFlags: 0
