@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenConsoleButton : MonoBehaviour
 {
     private CommandConsole commandConsole;
+    public TextObject text;
     private void Awake() {
         commandConsole = FindObjectOfType<CommandConsole>();
     }
@@ -12,5 +13,11 @@ public class OpenConsoleButton : MonoBehaviour
         commandConsole.openConsoleButton = gameObject;
         commandConsole.openMenu();
         gameObject.SetActive(false);
+    }
+    public void Click2() {
+        commandConsole.screenAnimators[0].SetBool("MenuOpen", true);
+        commandConsole.screenAnimators[1].SetBool("MenuButtonsActive", true);
+        commandConsole.menuOpen = true;
+        commandConsole.TriggerText(text);
     }
 }

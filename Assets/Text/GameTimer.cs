@@ -32,6 +32,9 @@ public class GameTimer : MonoBehaviour
         if (timerActive) {
             text.text = "Time Elapsed: " + (minutes > 0 ? minutes.ToString() + ":" : "0:") + (seconds < 10 ? "0" : "") + seconds.ToString();
         }
+        if (minutes > 40) {
+            SceneManager.LoadScene("BadEnding");
+        }
     }
     public void AddPenalty(int minutes) {
         hintPenalty += (60*minutes);

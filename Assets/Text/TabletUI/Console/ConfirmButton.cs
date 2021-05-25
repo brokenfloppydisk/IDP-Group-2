@@ -20,6 +20,9 @@ public class ConfirmButton : MonoBehaviour
             }
             commandConsole.areYouSureOpen = false;
         }
+        else if (answer) {
+            commandConsole.textManager.next();
+        }
         else if (!answer) {
             commandConsole.closeMenu();
         }

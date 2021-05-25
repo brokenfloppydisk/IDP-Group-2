@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class CommandConsole : TextTrigger
@@ -21,10 +22,14 @@ public class CommandConsole : TextTrigger
     public bool areYouSureOpen;
     public GameObject openConsoleButton;
     public bool puzzleComplete = false;
+    public GameObject openConsoleButton2;
     private void Awake() {
         consoleButtons = FindObjectsOfType<ConsoleButton>();
         gameTimer = FindObjectOfType<GameTimer>();
         unselectedAnswers.AddRange(from ConsoleButton button in consoleButtons select button);
+        if (FindObjectOfType<CameraScript>().shipActivated) {
+            correct();
+        }
     }
     public void openMenu() {
         screenAnimators[0].SetBool("MenuOpen",true);
@@ -60,11 +65,17 @@ public class CommandConsole : TextTrigger
         gameTimer.AddPenalty(4);
     }
     public void correctAnswer() {
-        puzzleComplete = true;
+        correct();
         TriggerText(correctAnswerText);
+        
+    }
+    public void correct() {
+        puzzleComplete = true;
+        FindObjectOfType<CameraScript>().shipActivated = true;
         setConsoleButtonsActive(false);
         unselectedAnswers.Clear();
         openConsoleButton.SetActive(false);
+        openConsoleButton2.SetActive(true);
     }
     public void areYouSure() {
         areYouSureOpen = true;

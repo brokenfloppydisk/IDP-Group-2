@@ -11,7 +11,7 @@ public class Cutscene : MonoBehaviour
     public int index;
     public GameObject tablet;
     public bool useScale;
-    private string[] nextScenes = new string[] {"StartRoom","Library"};
+    private string[] nextScenes = new string[] {"StartRoom","Library", "EscapePod"};
     private void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
         if (cameraScript.roomVisited[index]) {
@@ -31,11 +31,15 @@ public class Cutscene : MonoBehaviour
     }
     public void EndCutscene() {
         animator.SetBool("CutsceneOpen", false);
-        SceneManager.LoadScene(nextScenes[index]);
+        StartCoroutine(NextScene());
     }
 
     IEnumerator changeScale() {
         yield return new WaitForSeconds(2);
         tablet.transform.localScale = new Vector3(1,1,1);
+    }
+    IEnumerator NextScene() {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(nextScenes[index]);
     }
 }
