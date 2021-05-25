@@ -16,6 +16,7 @@ public class HotWire : ConnectPuzzle {
             resetButton.interactable = false;
             statusLight.sprite = statusLightStates[1];
             thoughts.sentence = "A set of connected electrical wires.";
+            FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
         }
     }
     public void openPuzzle() {
@@ -36,6 +37,7 @@ public class HotWire : ConnectPuzzle {
             _keypadPuzzle.keypadImages[i].sprite = _keypadPuzzle.keypadSprites[0];
         }
         thoughts.sentence = "A set of connected electrical wires.";
+        FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {

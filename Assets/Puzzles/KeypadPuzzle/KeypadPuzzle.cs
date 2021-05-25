@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class KeypadPuzzle : MonoBehaviour
 {
     public Keypad keypad;
@@ -16,7 +16,6 @@ public class KeypadPuzzle : MonoBehaviour
     [System.NonSerialized]
     public CameraScript cameraScript;
     public Animator animator;
-    public SceneChanger sceneChanger;
     public void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
     }
@@ -29,7 +28,7 @@ public class KeypadPuzzle : MonoBehaviour
         }
         if (_successes==3) {
             Debug.Log("Puzzle complete!");
-            sceneChanger.NextScene();
+            SceneManager.LoadScene("GoodEnding");
         }
     }
     

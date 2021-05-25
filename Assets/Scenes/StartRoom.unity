@@ -6998,7 +6998,7 @@ MonoBehaviour:
       \u2588\u2588\u2588\u2588\u2588"
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 75
-    titleFontSize: 100
+    titleFontSize: 80
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}
     bgColor: {r: 0, g: 0.29744723, b: 0.6320754, a: 0.9019608}
