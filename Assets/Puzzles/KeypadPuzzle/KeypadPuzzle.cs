@@ -28,6 +28,7 @@ public class KeypadPuzzle : MonoBehaviour
             }
         }
         if (_successes==3) {
+            Debug.Log("Puzzle complete!");
             sceneChanger.NextScene();
         }
     }

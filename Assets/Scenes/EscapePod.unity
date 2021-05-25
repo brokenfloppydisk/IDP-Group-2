@@ -4193,7 +4193,7 @@ MonoBehaviour:
   correctLight: {fileID: 832242390}
   enterButton: {fileID: 679290076}
   resetButton: {fileID: 1318413959}
-  thoughts: {fileID: 0}
+  thoughts: {fileID: 873116308}
 --- !u!1 &927799825
 GameObject:
   m_ObjectHideFlags: 0
