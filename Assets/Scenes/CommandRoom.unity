@@ -1692,16 +1692,16 @@ MonoBehaviour:
     - SHIP STATUS
     - RESTORING POWER GUIDE
     sentences:
-    - 'LIFE SUPPORT: OPERATIONAL
+    - 'BAY DOOR: LOCKED (MUST ENTER PASSWORD ON PANEL)
 
       NAVIGATION: OPERATIONAL
 
-      ESCAPE PODS:
-      OFFLINE'
+      ESCAPE
+      PODS: OFFLINE'
     - RESTORE POWER BY CONNECTING THE WIRES WITH CORRESPONDING EQUATIONS IN THE ESCAPE
       POD ROOM.
     textColor: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 50
+    fontSize: 30
     titleFontSize: 50
     fonts:
     - {fileID: 12800000, guid: 9bc1a91d6ce4fa44091393b51a6135c0, type: 3}

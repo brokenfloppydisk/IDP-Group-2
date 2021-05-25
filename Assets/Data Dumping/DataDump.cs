@@ -9,28 +9,32 @@ using static Google.Apis.Sheets.v4.SheetsService;
 
 public static class DataDump
 {
-    public static void Initialize() {
-        Debug.Log("DataDump Script Started");
-        using (var stream = new FileStream("Assets\\Data Dumping\\keys.json", FileMode.Open, FileAccess.Read)){
-            credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
-        }
-        service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer(){
-            HttpClientInitializer = credential,
-            ApplicationName = ApplicationName
-        });
-    }
-    public static string[] Scopes = {Scope.Spreadsheets}; 
+    public static bool initialized = false;
+    public static string[] Scopes = { Scope.Spreadsheets };
     public static string ApplicationName = "EscapeRoom";
     public static string SpreadsheetID = "10PPl7Go9VPR4k-bqHTQyRaaJ0LvP4SuUu13N8Ds7g7k";
-    public static string sheet = "Sheet1";
+    public static string[] sheets = new string[] { "TimesAndHints", "UserFeedback" };
     public static SheetsService service;
     private static GoogleCredential credential;
+    public static void Initialize() {
+        if (!initialized) {
+            Debug.Log("DataDump Script Started");
+            using (var stream = new FileStream("Assets\\Data Dumping\\keys.json", FileMode.Open, FileAccess.Read)) {
+                credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
+            }
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer() {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName
+            });
+            initialized = true;
+        }
+    }
 
     /// <summary>
     /// This method reads and returns entries from the spreadsheet as a 2D IList.
     /// </summary>
-    public static IList<IList<object>> ReadEntries(string rangeLow, string rangeHigh){
-        var range = $"{sheet}!{rangeLow}:{rangeHigh}";
+    public static IList<IList<object>> ReadEntries(string rangeLow, string rangeHigh, int index){
+        var range = $"{sheets[index]}!{rangeLow}:{rangeHigh}";
         var request = service.Spreadsheets.Values.Get(SpreadsheetID, range);
         var response = request.Execute();
         var values = response.Values;
@@ -39,7 +43,8 @@ public static class DataDump
     /// <summary>
     /// This method creates entries on the spreadsheet (will not overwrite entries).
     /// </summary>
-    public static void CreateEntry(string leftColumn, string rightColumn, List<object> inputs) {
+    public static void CreateEntry(string leftColumn, string rightColumn, List<object> inputs, int index) {
+        var sheet = sheets[index];
         var range = $"{sheet}!{leftColumn}:{rightColumn}";
         var valueRange = new Google.Apis.Sheets.v4.Data.ValueRange();
         valueRange.Values = new List<IList<object>> {inputs} ;
@@ -50,8 +55,8 @@ public static class DataDump
     /// <summary>
     /// This method changes entries on the spreadsheet. (untested)
     /// </summary>
-    public static void UpdateEntry(string cell, List<object> inputs) {
-        var range = $"{sheet}!{cell}";
+    public static void UpdateEntry(string cell, List<object> inputs, int index) {
+        var range = $"{sheets[index]}!{cell}";
         var valueRange = new Google.Apis.Sheets.v4.Data.ValueRange();
         valueRange.Values = new List<IList<object>> {inputs};
         var updateRequest = service.Spreadsheets.Values.Update(valueRange, SpreadsheetID, range);
@@ -62,8 +67,8 @@ public static class DataDump
     /// <summary>
     /// This method deletes entries from the spreadsheet. (untested)
     /// </summary>
-    public static void DeleteEntry(string leftBound, string rightBound) {
-        var range = $"{sheet}!{leftBound}:{rightBound}";
+    public static void DeleteEntry(string leftBound, string rightBound, int index) {
+        var range = $"{sheets[index]}!{leftBound}:{rightBound}";
         var requestBody = new ClearValuesRequest();
         var deleteRequest = service.Spreadsheets.Values.Clear(requestBody, SpreadsheetID, range);
         var deleteResponse = deleteRequest.Execute();

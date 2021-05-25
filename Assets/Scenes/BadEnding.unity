@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutscene: {fileID: 571949545}
   animator: {fileID: 571949548}
-  index: 2
+  index: 4
   tablet: {fileID: 0}
   useScale: 0
 --- !u!95 &571949548
