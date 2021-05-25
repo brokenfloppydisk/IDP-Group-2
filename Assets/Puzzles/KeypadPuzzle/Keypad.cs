@@ -13,6 +13,7 @@ public class Keypad : MonoBehaviour
     public Image correctLight;
     public Button enterButton;
     public Button resetButton;
+    public ThoughtsTrigger thoughts;
     public void Awake() {
         puzzle = FindObjectOfType<KeypadPuzzle>();
     }
@@ -26,8 +27,10 @@ public class Keypad : MonoBehaviour
             puzzle.values[this.index] = value;
             outputText.text = RomanNum.ToRoman(value);
             sideText.text = coordinateLabel + "-COORD";
+            thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
         }
         else {
+            thoughts.sentence = "Three keypads. They don't seem to be turned on.";
             value = 0;
             puzzle.values[index] = 0;
             outputText.text = "";

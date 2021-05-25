@@ -12,6 +12,7 @@ public class InputPuzzle : MonoBehaviour
     public Animator animator;
     public Button openButton;
     public Sprite correctImage;
+    public ThoughtsTrigger thoughts;
     public void TextChanged(string newText) {
         if (newText.ToUpper() == "RARE") {
             PuzzleComplete();
@@ -27,7 +28,12 @@ public class InputPuzzle : MonoBehaviour
         openButton.GetComponent<Image>().sprite = correctImage;
     }
     public void Awake() {
-        if (FindObjectOfType<CameraScript>().bayDoorOpen) {
+        CameraScript _cameraScript = FindObjectOfType<CameraScript>();
+        if (!_cameraScript.shipActivated) {
+            inputField.interactable = false;
+            thoughts.sentence = "A panel that controls the door. It doesn't look like it's on.";
+        }
+        if (_cameraScript.bayDoorOpen) {
             PuzzleComplete();
         } else {
             bayDoor.gameObject.GetComponent<Button>().interactable = false;

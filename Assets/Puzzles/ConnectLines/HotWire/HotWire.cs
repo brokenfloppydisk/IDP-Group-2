@@ -8,12 +8,14 @@ public class HotWire : ConnectPuzzle {
     public Image statusLight;
     public Sprite[] statusLightStates;
     public List<Animator> animators;
+    public ThoughtsTrigger thoughts;
     private void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
         if (cameraScript.wiresConnected) {
             enterButton.interactable = false;
             resetButton.interactable = false;
             statusLight.sprite = statusLightStates[1];
+            thoughts.sentence = "A set of connected electrical wires.";
         }
     }
     public void openPuzzle() {
@@ -33,6 +35,7 @@ public class HotWire : ConnectPuzzle {
         for (int i = 0; i < _keypadPuzzle.keypadImages.Count; i++) {
             _keypadPuzzle.keypadImages[i].sprite = _keypadPuzzle.keypadSprites[0];
         }
+        thoughts.sentence = "A set of connected electrical wires.";
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {
