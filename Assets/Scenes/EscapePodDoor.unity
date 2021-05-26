@@ -307,6 +307,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textInterface:
+    titles: []
+    sentences: []
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    fontSize: 0
+    titleFontSize: 0
+    fonts: []
+    bgColor: {r: 0, g: 0, b: 0, a: 0}
+  textManager: {fileID: 0}
   indexerNumber: 3
   index: 0
   hintsUsed: 0
@@ -499,6 +508,7 @@ Transform:
   - {fileID: 12870730}
   - {fileID: 472233799}
   - {fileID: 466174579}
+  - {fileID: 1132068747}
   m_Father: {fileID: 160527838}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,6 +808,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035978759}
   m_CullTransparentMesh: 0
+--- !u!1 &1132068746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132068747}
+  - component: {fileID: 1132068749}
+  - component: {fileID: 1132068748}
+  m_Layer: 0
+  m_Name: GameObject (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1132068747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132068746}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.73749995, y: 0.73749995, z: 0.73749995}
+  m_Children: []
+  m_Father: {fileID: 440312276}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1132068748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132068746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 70.38264, y: 125.461296, z: 1}
+  m_Center: {x: 810.02014, y: -304.26962, z: 0}
+--- !u!114 &1132068749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132068746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4370c9bbc64715847aaa1176679d54f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: 1
+  sentence: An alien transmitter. Maybe I could use it to ask for help from Earth...
 --- !u!1 &1269298904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: CommandRoom
   newGame: 0
+  nextAct: 1
 --- !u!61 &1904067197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1919,6 +1989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: EscapePodCutscene
   newGame: 0
+  nextAct: 2
 --- !u!114 &2047641314
 MonoBehaviour:
   m_ObjectHideFlags: 0

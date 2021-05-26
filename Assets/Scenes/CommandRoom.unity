@@ -246,7 +246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 899bc4e5df1161546b1658a460064e87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7098b915d6e34b5478ee7c98f37a23b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -264,6 +264,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135418090}
   m_CullTransparentMesh: 0
+--- !u!1 &172106282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172106283}
+  - component: {fileID: 172106285}
+  - component: {fileID: 172106284}
+  m_Layer: 0
+  m_Name: GameObject (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &172106283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172106282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.73749995, y: 0.73749995, z: 0.73749995}
+  m_Children: []
+  m_Father: {fileID: 447432020}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &172106284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172106282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80.509155, y: 138.6996, z: 1}
+  m_Center: {x: 812.87787, y: -303.73416, z: 0}
+--- !u!114 &172106285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172106282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4370c9bbc64715847aaa1176679d54f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: 1
+  sentence: An alien transmitter. Maybe I could use it to ask for help from Earth...
 --- !u!1 &213445135
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +654,7 @@ Transform:
   - {fileID: 1408715268}
   - {fileID: 919696840}
   - {fileID: 1860130869}
+  - {fileID: 172106283}
   m_Father: {fileID: 2113164832}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -693,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: EscapePodDoor
   newGame: 0
+  nextAct: 1
 --- !u!114 &466331540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,7 +2390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9c7363d709bae447b985da58e93a5fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c22c5ba7756fa4b49abcae2af7106ff9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2376,6 +2437,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textInterface:
+    titles: []
+    sentences: []
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    fontSize: 0
+    titleFontSize: 0
+    fonts: []
+    bgColor: {r: 0, g: 0, b: 0, a: 0}
+  textManager: {fileID: 0}
   indexerNumber: 2
   index: 0
   hintsUsed: 0
@@ -2827,6 +2897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: Library
   newGame: 0
+  nextAct: 2
 --- !u!61 &2046725786
 BoxCollider2D:
   m_ObjectHideFlags: 0

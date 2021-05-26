@@ -1274,6 +1274,7 @@ GameObject:
   - component: {fileID: 397079028}
   - component: {fileID: 397079029}
   - component: {fileID: 397079030}
+  - component: {fileID: 397079031}
   m_Layer: 5
   m_Name: NextRoomButton
   m_TagString: Untagged
@@ -1354,6 +1355,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 397079031}
+        m_MethodName: RecordGameTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &397079026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,6 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: LibraryCutscene
   newGame: 0
+  nextAct: 2
 --- !u!114 &397079029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,6 +1446,19 @@ MonoBehaviour:
   arrowSprites:
   - {fileID: 21300000, guid: 48b2ba56921c5414a91915cd2588da75, type: 3}
   - {fileID: 21300000, guid: c2ac93413a792c842b7c4cb43ae116ab, type: 3}
+--- !u!114 &397079031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397079023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef228348d665e5340a790c72908e4726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  act: 0
 --- !u!1 &407056202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,6 +5559,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321594180}
   m_CullTransparentMesh: 0
+--- !u!1 &1332355284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332355285}
+  - component: {fileID: 1332355287}
+  - component: {fileID: 1332355286}
+  m_Layer: 0
+  m_Name: GameObject (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332355285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332355284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1654037473}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1332355286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332355284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 52.107887, y: 95.00319, z: 1}
+  m_Center: {x: 599.86096, y: -225.07823, z: 0}
+--- !u!114 &1332355287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332355284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4370c9bbc64715847aaa1176679d54f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: 1
+  sentence: An alien transmitter. Maybe I could use it to ask for help from Earth...
 --- !u!1 &1373747398
 GameObject:
   m_ObjectHideFlags: 0
@@ -7357,6 +7442,7 @@ Transform:
   - {fileID: 1570702313}
   - {fileID: 1456920391}
   - {fileID: 1202228432}
+  - {fileID: 1332355285}
   m_Father: {fileID: 936402696}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

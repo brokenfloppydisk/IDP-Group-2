@@ -40,6 +40,8 @@ public class CameraScript : MonoBehaviour
         wiresConnected = false;
         bayDoorOpen = false;
         roomVisited = new bool[] {false, false, false, false, false};
+        hints.Reset();
+        FindObjectOfType<GameTimer>().Reset();
     }
     public void CalculateTimes(string name) {
         List<object> values = new List<object>();
@@ -57,32 +59,41 @@ public class CameraScript : MonoBehaviour
         List<object> values = Values.ToList();
         DataDump.Initialize();
         bool completed = false;
-        if (endTime != 0)
-        {
+        if (endTime != 0) {
             completed = true;
         }
-        void formatList(List<float> list)
-        {
+        void formatList(List<float> list) {
             List<float> tempList = list.ToList();
-            for (int i = 0; i < tempList.Count; i++)
-            {
+            Debug.Log(3-tempList.Count());
+            for (int i = 0; i <(3 - tempList.Count); i++) {
                 tempList.Add(-1);
             }
+            for (int i = 0; i <tempList.Count; i++) {
+                Debug.Log(tempList[i]);
+            }
             float temp = 0;
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < tempList.Count; i++) {
                 values.Add(tempList[i]);
-                temp += tempList[i];
+                if (tempList[i]!=-1){
+                    temp += tempList[i];
+                }
             }
             values.Add(temp);
         }
         values.Add(completed.ToString());
         List<float> _times = new List<float>();
+        for (int i = 0; i < (3 - times.Count); i++) {
+            times.Add(-1);
+        }
         times.ForEach(x => _times.Add(x != -1 ? (Mathf.Abs(startTime - x)) : -1));
+        Debug.Log("times");
         formatList(_times);
+        Debug.Log("Hints");
         formatList(hintsUsed.Select<int, float>(i => i).ToList());
+        Debug.Log("Hint Penalties");
         formatList(penalties);
-        formatList(times.Zip(penalties, (x, y) => x + y).ToList());
+        Debug.Log("Adjusted Times");
+        formatList(_times.Zip(penalties, (x, y) => x + y).ToList());
         Debug.Log(values.Count);
         DataDump.CreateEntry("A", "R", values, 0);
     }

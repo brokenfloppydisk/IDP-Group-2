@@ -242,7 +242,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 571949547}
-        m_MethodName: EndCutscene
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,8 +431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad7973e1d9b934db76f270f668d080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameScene: MainMenu
+  newGameScene: Survey
   newGame: 0
+  nextAct: 0
 --- !u!1 &1226889118
 GameObject:
   m_ObjectHideFlags: 0

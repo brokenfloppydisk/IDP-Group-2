@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0649
 public class Hints : MonoBehaviour
 {
     private CameraScript cameraScript;
@@ -67,5 +68,21 @@ public class Hints : MonoBehaviour
     }
     public void useHint() {
         sceneIndexer.UseHint();
+    }
+    public void checkPreviousHints() {
+        sceneIndexer.checkPreviousHints();
+    }
+    public void Reset() {
+        alreadyInitializedText = new bool[] {false, false, false, false, false};
+        textObjects = new TextObject[] {null,null,null,null,null};
+        indices = new int[] {0,0,0,0,0};
+        usedHints = new int[] {0,0,0,0,0};
+    }
+    public void updateCameraScript() {
+        cameraScript.hintsUsed.Clear();
+        cameraScript.hintsUsed.Add(usedHints[0]);
+        cameraScript.hintsUsed.Add(usedHints[2]+usedHints[3]);
+        cameraScript.hintsUsed.Add(usedHints[1]+usedHints[4]);
+        gameTimer.RecordPenalties();
     }
 }

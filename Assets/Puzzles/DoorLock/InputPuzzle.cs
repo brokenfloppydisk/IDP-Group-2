@@ -23,9 +23,12 @@ public class InputPuzzle : MonoBehaviour
         inputField.interactable = false;
         openButton.interactable = false;
         correctLight.sprite = correctLightSprite;
-        FindObjectOfType<CameraScript>().bayDoorOpen = true;
+        CameraScript camera = FindObjectOfType<CameraScript>();
+        camera.bayDoorOpen = true;
         bayDoor.gameObject.GetComponent<Button>().interactable = true;
         openButton.GetComponent<Image>().sprite = correctImage;
+        camera.times.Add(Time.time);
+        
     }
     public void Awake() {
         CameraScript _cameraScript = FindObjectOfType<CameraScript>();

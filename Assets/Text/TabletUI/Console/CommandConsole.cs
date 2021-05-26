@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-
+#pragma warning disable 0649
 public class CommandConsole : TextTrigger
 {
     public Animator[] screenAnimators;

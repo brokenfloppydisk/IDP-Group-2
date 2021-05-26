@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#pragma warning disable 0649
 public class IntroCutscene : MonoBehaviour
 {
     private int cutsceneStage = 0;

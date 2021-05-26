@@ -7,14 +7,19 @@ public class SceneChanger : MonoBehaviour
     [SerializeField]
     private string newGameScene;
     [SerializeField]
-    private bool newGame;
+    private bool newGame = false;
     [SerializeField]
+    private int nextAct = 0;
     public void NextScene() {
         if (newGame) {
             CameraScript _camera = FindObjectOfType<CameraScript>();
             if (!_camera.firstPlaythrough) {
                 _camera.ResetVars();
                 newGameScene = "IntroCutscene";
+                GameTimer timer = FindObjectOfType<GameTimer>();
+                if (timer) {
+                    timer.act = nextAct;
+                }
             }
         }
         SceneManager.LoadScene(newGameScene);

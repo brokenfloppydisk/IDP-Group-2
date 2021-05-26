@@ -27,7 +27,8 @@ public class KeypadPuzzle : MonoBehaviour
             }
         }
         if (_successes==3) {
-            Debug.Log("Puzzle complete!");
+            cameraScript.endTime = Time.time;
+            cameraScript.times.Add(Time.time);
             SceneManager.LoadScene("GoodEnding");
         }
     }

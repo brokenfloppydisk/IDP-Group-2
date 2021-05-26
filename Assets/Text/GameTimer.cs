@@ -10,10 +10,13 @@ public class GameTimer : MonoBehaviour
     public bool timerActive;
     public Text text;
     private float startTime {get; set;}
-    private float hintPenalty;
-    public int stage = 0;
+    private float totalHintPenalty = 0;
+    private float[] hintPenalites = new float[] {0,0,0};
+    public int act = 0;
     private CameraScript cameraScript;
+    private Hints hints;
     private void Start() {
+        hints = FindObjectOfType<Hints>();
         cameraScript = FindObjectOfType<CameraScript>();
         if (cameraScript.roomVisited[0]) {
             Destroy(this.gameObject);
@@ -26,25 +29,44 @@ public class GameTimer : MonoBehaviour
     }
     private void Update() {
         startTime = cameraScript.startTime;
-        float totalSeconds = Mathf.Round(Time.time-startTime+hintPenalty);
+        float totalSeconds = Mathf.Round(Time.time-startTime+totalHintPenalty);
         float seconds = totalSeconds % 60;
         int minutes = (int) (totalSeconds-seconds) / 60;
         if (timerActive) {
             text.text = "Time Elapsed: " + (minutes > 0 ? minutes.ToString() + ":" : "0:") + (seconds < 10 ? "0" : "") + seconds.ToString();
         }
         if (minutes >= 40) {
-            SceneManager.LoadScene("BadEnding");
+            badEnding();
         }
     }
+    private void badEnding() {
+        hints.updateCameraScript();
+        RecordPenalties();
+        
+        SceneManager.LoadScene("BadEnding");
+        
+    }
     public void AddPenalty(int minutes) {
-        hintPenalty += (60*minutes);
+        totalHintPenalty += (60 * minutes);
+        hintPenalites[act] += (60 * minutes);
     }
     public void AddPenalty(float minutes) {
-        hintPenalty += (60 * minutes);
+        totalHintPenalty += (60 * minutes);
+        hintPenalites[act] += (60 * minutes);
     }
     public void RecordTime() {
-        cameraScript.penalties.Add(hintPenalty);
-        hintPenalty = 0;
         cameraScript.times.Add(Time.time);
+    }
+    public void RecordPenalties() {
+        cameraScript.penalties.Clear();
+        for (int i = 0; i < 3; i++) {
+            cameraScript.penalties.Add(hintPenalites[i]);
+        }
+    }
+    public void Reset() {
+        startTime = 0;
+        totalHintPenalty = 0;
+        hintPenalites = new float[] {0,0,0};
+        act = 0;
     }
 }
