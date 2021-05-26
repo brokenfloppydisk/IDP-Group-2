@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameScene: EscapePodDoor
   newGame: 0
+  nextAct: 1
 --- !u!61 &58312715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -935,6 +936,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80524897}
   m_CullTransparentMesh: 0
+--- !u!1 &114794678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114794679}
+  - component: {fileID: 114794681}
+  - component: {fileID: 114794680}
+  m_Layer: 0
+  m_Name: GameObject (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114794679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114794678}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.73749995, y: 0.73749995, z: 0.73749995}
+  m_Children: []
+  m_Father: {fileID: 902555190}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &114794680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114794678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 81.18941, y: 126.70822, z: 1}
+  m_Center: {x: 809.9101, y: -301.7008, z: 0}
+--- !u!114 &114794681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114794678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4370c9bbc64715847aaa1176679d54f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: 1
+  sentence: An alien transmitter. Maybe I could use it to ask for help from Earth...
 --- !u!1 &200962689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2474,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textInterface:
+    titles: []
+    sentences: []
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    fontSize: 0
+    titleFontSize: 0
+    fonts: []
+    bgColor: {r: 0, g: 0, b: 0, a: 0}
+  textManager: {fileID: 0}
   indexerNumber: 4
   index: 0
   hintsUsed: 0
@@ -4403,6 +4472,7 @@ Transform:
   - {fileID: 1716527481}
   - {fileID: 1288345744}
   - {fileID: 1839350537}
+  - {fileID: 114794679}
   m_Father: {fileID: 615725078}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

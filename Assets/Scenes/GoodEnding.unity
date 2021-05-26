@@ -253,8 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad7973e1d9b934db76f270f668d080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameScene: MainMenu
+  newGameScene: Survey
   newGame: 0
+  nextAct: 0
 --- !u!114 &435073700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -610,7 +611,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1423376120}
-        m_MethodName: EndCutscene
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

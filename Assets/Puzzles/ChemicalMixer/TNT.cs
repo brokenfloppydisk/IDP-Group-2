@@ -24,11 +24,7 @@ public class TNT : MonoBehaviour
         gameObject.GetComponent<Activator>().Activate();
     }
     public void ClickTnt() {
-        if (selected) {
-            selected = false;
-        } else {
-            selected = true;
-        }
+        selected = true;
     }
     private IEnumerator SetArrowActive() {
         yield return new WaitForSeconds(1);
