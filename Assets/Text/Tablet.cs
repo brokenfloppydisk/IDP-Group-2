@@ -7,7 +7,7 @@ public class Tablet : MonoBehaviour
     public void CutsceneAdvance() {
         Cutscene cutscene = FindObjectOfType<Cutscene>();
         if (cutscene) {
-            if (cutscene.index == 0) {
+            if (cutscene.index == 1) {
                 cutscene.EndCutscene();
             }
         }

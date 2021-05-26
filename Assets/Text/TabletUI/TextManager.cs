@@ -34,8 +34,12 @@ public class TextManager : MonoBehaviour
             }
         }
         this.textObject = textObject;
-        cameraScript.hiddenButtons[0].GetComponent<Image>().color = textObject.bgColor;
-        cameraScript.hiddenButtons[1].GetComponent<Image>().color = textObject.bgColor;
+        if (cameraScript.hiddenButtons[0].activeInHierarchy) {
+            cameraScript.hiddenButtons[0].GetComponent<Image>().color = textObject.bgColor;
+        }
+        if (cameraScript.hiddenButtons[1].activeInHierarchy) {
+            cameraScript.hiddenButtons[1].GetComponent<Image>().color = textObject.bgColor;
+        }
         titleText.fontSize = textObject.titleFontSize;
         titleText.color = textObject.textColor;
         titleText.font = textObject.fonts[0];
@@ -44,7 +48,6 @@ public class TextManager : MonoBehaviour
         bodyText.fontSize = textObject.fontSize;
         bodyText.font = textObject.fonts[0];
         titleText.text = textObject.titles[0];
-        sentences.Clear();
         for (int i = 0; i < textObject.sentences.Length; i++) {
             sentences.Enqueue(textObject.sentences[i]);
         }

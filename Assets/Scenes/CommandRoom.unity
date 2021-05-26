@@ -1009,6 +1009,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653423396}
   m_CullTransparentMesh: 0
+--- !u!1 &702526445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702526447}
+  - component: {fileID: 702526446}
+  m_Layer: 0
+  m_Name: HintTag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &702526446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702526445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a74354ecbc6cc40ac982ffe7fc100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasHints: 1
+--- !u!4 &702526447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702526445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813514970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1294,7 @@ MonoBehaviour:
     titles:
     - ARE YOU SURE
     sentences:
-    - AN INCORRECT ANSWER WILL CAUSE THIS CONSOLE TO SHUT DOWN FOR V MINUTES.
+    - AN INCORRECT ANSWER WILL CAUSE THIS CONSOLE TO SHUT DOWN FOR I MINUTE.
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 40
     titleFontSize: 50
@@ -2303,6 +2347,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946030405}
   m_CullTransparentMesh: 0
+--- !u!1 &1958897954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1958897956}
+  - component: {fileID: 1958897955}
+  m_Layer: 0
+  m_Name: HintSceneIndexer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1958897955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958897954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexerNumber: 2
+  index: 0
+  hintsUsed: 0
+  textObject:
+    titles:
+    - Hint
+    sentences:
+    - There are no hints for this problem. If necessary, you can brute-force the
+      administration captcha.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 50
+    titleFontSize: 60
+    fonts:
+    - {fileID: 12800000, guid: 380501b5245134045ba6db2788df3f84, type: 3}
+    bgColor: {r: 0.54901963, g: 0.19215688, b: 1, a: 1}
+  animator: {fileID: 0}
+  hintsList: []
+  penaltyList: []
+--- !u!4 &1958897956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958897954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987747203
 GameObject:
   m_ObjectHideFlags: 0

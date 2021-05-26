@@ -36,7 +36,6 @@ public class Cutscene : MonoBehaviour
 
     IEnumerator changeScale() {
         yield return new WaitForSeconds(2);
-        tablet.transform.localScale = new Vector3(1,1,1);
     }
     IEnumerator NextScene() {
         yield return new WaitForSeconds(2);
