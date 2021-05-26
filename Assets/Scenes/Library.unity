@@ -1236,7 +1236,7 @@ MonoBehaviour:
 
       ONE TIME PAD
 
-      P YZZOFF GMADHA'
+      P FKDFZM PIZEL'
     - 'ENCRYPTED MESSAGE RECEIVED FROM EARTH DISPATCH DISTRICT:
 
       THIS MESSAGE
@@ -1297,6 +1297,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902064730}
   m_CullTransparentMesh: 0
+--- !u!1 &970030657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970030659}
+  - component: {fileID: 970030658}
+  m_Layer: 0
+  m_Name: HintTag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &970030658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970030657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a74354ecbc6cc40ac982ffe7fc100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasHints: 1
+--- !u!4 &970030659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970030657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113596434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2339,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474b34fb65d81af4891e10afb38404f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1925342264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925342266}
+  - component: {fileID: 1925342265}
+  m_Layer: 0
+  m_Name: HintSceneIndexer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1925342265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925342264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexerNumber: 1
+  index: 0
+  hintsUsed: 0
+  textObject:
+    titles:
+    - Hint
+    sentences:
+    - 
+    - 
+    - 
+    - 
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 50
+    titleFontSize: 60
+    fonts:
+    - {fileID: 12800000, guid: 380501b5245134045ba6db2788df3f84, type: 3}
+    bgColor: {r: 0.54901963, g: 0.19215688, b: 1, a: 1}
+  animator: {fileID: 0}
+  hintsList:
+  - The ciphers guide contains the ciphers that the Aliens have used.
+  - 'The one-time pad''s key is
+
+    16, 1, 20, 9, 5, 14, 20, 13, 5, 4, 9, 3'
+  - 'The book cipher''s words are: symptoms, patient, frequent, including, all, afiracil,
+    pressure, recovery, control, exacerbated, experiencing, lionatal, injected, and
+    expected.'
+  - 'The one-time-pad gives:
+
+    Z EQUALS CDXVI (z=416)
+
+    The book cipher gives:
+
+    Y
+    EQUALS CCCXLIX (y=349)'
+  penaltyList:
+  - 1
+  - 2
+  - 3
+  - 4
+--- !u!4 &1925342266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925342264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936992953
 GameObject:
   m_ObjectHideFlags: 0

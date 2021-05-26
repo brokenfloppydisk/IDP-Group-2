@@ -25,6 +25,7 @@ public class GameTimer : MonoBehaviour
         SceneManager.LoadScene("LabCutscene");
     }
     private void Update() {
+        startTime = cameraScript.startTime;
         float totalSeconds = Mathf.Round(Time.time-startTime+hintPenalty);
         float seconds = totalSeconds % 60;
         int minutes = (int) (totalSeconds-seconds) / 60;
@@ -37,6 +38,9 @@ public class GameTimer : MonoBehaviour
     }
     public void AddPenalty(int minutes) {
         hintPenalty += (60*minutes);
+    }
+    public void AddPenalty(float minutes) {
+        hintPenalty += (60 * minutes);
     }
     public void RecordTime() {
         cameraScript.penalties.Add(hintPenalty);

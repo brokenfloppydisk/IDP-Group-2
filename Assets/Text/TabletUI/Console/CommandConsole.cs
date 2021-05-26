@@ -62,7 +62,7 @@ public class CommandConsole : TextTrigger
         consoleButton.gameObject.SetActive(false);
         unselectedAnswers.Remove(selectedAnswer);
         selectedAnswer = null;
-        gameTimer.AddPenalty(4);
+        gameTimer.AddPenalty(1);
     }
     public void correctAnswer() {
         correct();

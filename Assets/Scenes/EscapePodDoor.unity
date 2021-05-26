@@ -278,6 +278,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51062334}
   m_CullTransparentMesh: 0
+--- !u!1 &69596018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69596020}
+  - component: {fileID: 69596019}
+  m_Layer: 0
+  m_Name: HintSceneIndexer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &69596019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69596018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f24989ded4531843a7e4e9c4d62e461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexerNumber: 3
+  index: 0
+  hintsUsed: 0
+  textObject:
+    titles:
+    - Hint
+    sentences:
+    - 
+    - 
+    - 
+    - 
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 50
+    titleFontSize: 60
+    fonts:
+    - {fileID: 12800000, guid: 380501b5245134045ba6db2788df3f84, type: 3}
+    bgColor: {r: 0.54901963, g: 0.19215688, b: 1, a: 1}
+  animator: {fileID: 0}
+  hintsList:
+  - 'The text above the panel says:
+
+    The golden blood is...'
+  - Earlier, the doctor told you that your blood is peculiar.
+  - The passcode is 4 letters long.
+  - The passcode is "rare".
+  penaltyList:
+  - 1
+  - 2
+  - 3
+  - 4
+--- !u!4 &69596020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69596018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160527832
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +953,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292155484}
   m_CullTransparentMesh: 0
+--- !u!1 &1513053744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513053746}
+  - component: {fileID: 1513053745}
+  m_Layer: 0
+  m_Name: HintTag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1513053745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513053744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a74354ecbc6cc40ac982ffe7fc100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasHints: 1
+--- !u!4 &1513053746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513053744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545263609
 GameObject:
   m_ObjectHideFlags: 0

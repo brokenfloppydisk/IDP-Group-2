@@ -12,8 +12,10 @@ public class SceneChanger : MonoBehaviour
     public void NextScene() {
         if (newGame) {
             CameraScript _camera = FindObjectOfType<CameraScript>();
-            _camera.ResetVars();
-            _camera.startTime = Time.time;
+            if (!_camera.firstPlaythrough) {
+                _camera.ResetVars();
+                newGameScene = "IntroCutscene";
+            }
         }
         SceneManager.LoadScene(newGameScene);
     }
