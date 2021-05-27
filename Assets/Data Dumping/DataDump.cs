@@ -18,7 +18,6 @@ public static class DataDump
     private static GoogleCredential credential;
     public static void Initialize() {
         if (!initialized) {
-            Debug.Log("DataDump Script Started");
             using (var stream = new FileStream("Assets\\Data Dumping\\keys.json", FileMode.Open, FileAccess.Read)) {
                 credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
             }

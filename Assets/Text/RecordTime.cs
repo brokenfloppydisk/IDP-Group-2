@@ -6,8 +6,9 @@ public class RecordTime : MonoBehaviour
 {
     public int act = 0;
     public void RecordGameTime() {
-        if ((FindObjectOfType<CameraScript>().times.Count-1) >= act) {
-            FindObjectOfType<GameTimer>().RecordTime();
+        GameTimer gameTimer = FindObjectOfType<GameTimer>();
+        if (gameTimer.act != this.act) {
+            gameTimer.RecordTime(this.act);
         }
     }
 }

@@ -27,7 +27,7 @@ public class InputPuzzle : MonoBehaviour
         camera.bayDoorOpen = true;
         bayDoor.gameObject.GetComponent<Button>().interactable = true;
         openButton.GetComponent<Image>().sprite = correctImage;
-        camera.times.Add(Time.time);
+        FindObjectOfType<GameTimer>().RecordTime(1);
         
     }
     public void Awake() {

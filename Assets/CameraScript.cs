@@ -8,17 +8,17 @@ public class CameraScript : MonoBehaviour
     public Camera mainCamera;
     [System.NonSerialized]
     public GameObject[] hiddenButtons = {null, null, null};
-    public Translator translator;
     public float startTime = 0;
-    public float endTime = 2;
+    public float endTime = 0;
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
     public bool wiresConnected = false;
     public bool bayDoorOpen = false;
+    public bool mainMenuFirstTime = true;
     public bool[] roomVisited = {false, false, false, false, false};
-    public List<float> times = new List<float>();
-    public List<float> penalties = new List<float>();
-    public List<int> hintsUsed = new List<int>();
+    public List<float> times = new List<float>() {0,0,0};
+    public List<float> penalties = new List<float>() {0,0,0};
+    public List<int> hintsUsed = new List<int>() {0,0,0};
     public bool firstPlaythrough = true;
     public Hints hints;
     private void Awake() {
@@ -40,8 +40,12 @@ public class CameraScript : MonoBehaviour
         wiresConnected = false;
         bayDoorOpen = false;
         roomVisited = new bool[] {false, false, false, false, false};
-        hints.Reset();
-        FindObjectOfType<GameTimer>().Reset();
+        hiddenButtons = new GameObject[] {null,null,null};
+        hints = null;
+        times = new List<float>() { 0, 0, 0 };
+        penalties.Clear();
+        hintsUsed = new List<int>() { 0, 0, 0 };
+        GameObject.Destroy(FindObjectOfType<GameTimer>().gameObject);
     }
     public void CalculateTimes(string name) {
         List<object> values = new List<object>();
@@ -62,17 +66,17 @@ public class CameraScript : MonoBehaviour
         if (endTime != 0) {
             completed = true;
         }
-        void formatList(List<float> list) {
+        List<float> fillList(List<float> list) {
             List<float> tempList = list.ToList();
-            Debug.Log(3-tempList.Count());
-            for (int i = 0; i <(3 - tempList.Count); i++) {
+            while (tempList.Count < 3) {
                 tempList.Add(-1);
             }
-            for (int i = 0; i <tempList.Count; i++) {
-                Debug.Log(tempList[i]);
-            }
+            return tempList;
+        }
+        void formatList(List<float> list) {
+            List<float> tempList = list.ToList();
             float temp = 0;
-            for (int i = 0; i < tempList.Count; i++) {
+            for (int i = 0; i < 3; i++) {
                 values.Add(tempList[i]);
                 if (tempList[i]!=-1){
                     temp += tempList[i];
@@ -82,19 +86,26 @@ public class CameraScript : MonoBehaviour
         }
         values.Add(completed.ToString());
         List<float> _times = new List<float>();
-        for (int i = 0; i < (3 - times.Count); i++) {
-            times.Add(-1);
+        times = fillList(times);
+        for (int i = 0; i < 3; i++) {
+            if (times[i]!=-1) {
+                if (i == 1) {
+                    _times.Add(Mathf.Abs(times[i]-startTime));
+                } else {
+                    if (times[i-1]!=-1) {
+                        _times.Add(Mathf.Abs(times[i]-times[i-1]));
+                    } else {
+                        _times.Add(-1);
+                    }
+                }
+            }
         }
-        times.ForEach(x => _times.Add(x != -1 ? (Mathf.Abs(startTime - x)) : -1));
-        Debug.Log("times");
         formatList(_times);
-        Debug.Log("Hints");
+        List<float> hintsList = fillList(hintsUsed.Select<int, float>(i => i).ToList());
         formatList(hintsUsed.Select<int, float>(i => i).ToList());
-        Debug.Log("Hint Penalties");
+        penalties = fillList(penalties);
         formatList(penalties);
-        Debug.Log("Adjusted Times");
-        formatList(_times.Zip(penalties, (x, y) => x + y).ToList());
-        Debug.Log(values.Count);
+        formatList(_times.Zip(penalties, (x, y) => (x!= -1 || y!= -1 ? ((x!= -1 ? x : 0) + (y != -1 ? y : 0)) : -1)).ToList());
         DataDump.CreateEntry("A", "R", values, 0);
     }
 }

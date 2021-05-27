@@ -1061,7 +1061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter username...
+  m_Text: Enter answer...
 --- !u!222 &630264693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1376,7 +1376,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1885032096}
-        m_MethodName: submitFeedback
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3018,7 +3018,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1885032096}
-        m_MethodName: skipTextAnswer
+        m_MethodName: setTextAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3384,8 +3384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50.00003}
-  m_SizeDelta: {x: 800, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677632156
 MonoBehaviour:
@@ -3928,8 +3928,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9f0d0f5d9486d41aae24d7a5d063c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textAnswers:
+  - 
+  - 
+  - 
   numQuestionText: {fileID: 1693762437}
   openEndedQuestionText: {fileID: 209987518}
+  answer: 
   nameField: {fileID: 917227126}
   reccomendationsField: {fileID: 1677632156}
   surveyParts:
