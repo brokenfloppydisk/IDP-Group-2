@@ -27,7 +27,7 @@ public class Hints : MonoBehaviour
     public int[] usedHints = new int[] {0,0,0,0,0};
 
     private void Awake() {
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
         cameraScript.hints = this;
         hintsObject.transform.position += new Vector3(0,-4000,0);
     }

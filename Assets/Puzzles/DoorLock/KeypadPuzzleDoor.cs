@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class KeypadPuzzleDoor : MonoBehaviour
 {
     void Awake() {
-        if (!FindObjectOfType<CameraScript>().bayDoorOpen) {
+        if (!CameraScript.Instance.bayDoorOpen) {
             gameObject.GetComponent<Button>().interactable = false;
         }
     }

@@ -6,7 +6,7 @@ public class Startup : MonoBehaviour
 {
     public int index;
     private void Start(){
-        FindObjectOfType<CameraScript>().hiddenButtons[index] = gameObject;
+        CameraScript.Instance.hiddenButtons[index] = gameObject;
         gameObject.SetActive(false);
     }
 }

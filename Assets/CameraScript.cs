@@ -5,6 +5,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CameraScript : MonoBehaviour
 {
+    private static CameraScript _instance;
+    public static CameraScript Instance {
+        get {
+            if (_instance == null) {
+                Debug.LogError("CameraScript is null");
+            }
+            return _instance;
+        } 
+        set{
+
+        }
+    }
     public Camera mainCamera;
     [System.NonSerialized]
     public GameObject[] hiddenButtons = {null, null, null};
@@ -22,6 +34,7 @@ public class CameraScript : MonoBehaviour
     public bool firstPlaythrough = true;
     public Hints hints;
     private void Awake() {
+        _instance = this;
         DontDestroyOnLoad(this);
         SceneManager.LoadScene("MainMenu");
     }
@@ -89,7 +102,7 @@ public class CameraScript : MonoBehaviour
         times = fillList(times);
         for (int i = 0; i < 3; i++) {
             if (times[i]!=-1) {
-                if (i == 1) {
+                if (i == 0) {
                     _times.Add(Mathf.Abs(times[i]-startTime));
                 } else {
                     if (times[i-1]!=-1) {

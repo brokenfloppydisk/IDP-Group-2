@@ -18,9 +18,8 @@ public static class DataDump
     private static GoogleCredential credential;
     public static void Initialize() {
         if (!initialized) {
-            using (var stream = new FileStream("Assets\\Data Dumping\\keys.json", FileMode.Open, FileAccess.Read)) {
-                credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
-            }
+            string credentialString = Resources.Load("DataDump/keys",typeof(TextAsset)).ToString();
+            credential = GoogleCredential.FromJson(credentialString).CreateScoped(Scopes);
             service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer() {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName

@@ -34,7 +34,7 @@ public class Survey : MonoBehaviour
     private GameObject[] surveyParts = new GameObject[3];
     public int questionNum = 0;
     private void Awake() {
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
     }
     public void TakeSurvey() {
         surveyParts[0].SetActive(false);
