@@ -14,7 +14,7 @@ public class MainMenu : SceneChanger
     }
     IEnumerator startSequence() {
         yield return new WaitForSeconds(1);
-        CameraScript cameraScript = FindObjectOfType<CameraScript>();
+        CameraScript cameraScript = CameraScript.Instance;
         if (cameraScript.mainMenuFirstTime) {
             logoAnimator.SetBool("OpenLogo", true);
             cameraScript.mainMenuFirstTime = false;

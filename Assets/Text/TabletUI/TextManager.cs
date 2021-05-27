@@ -20,7 +20,7 @@ public class TextManager : MonoBehaviour
     private bool usingAnimators;
     // Start is called before the first frame update
     void Start() {
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
         sentences = new Queue<string>();
         titlesQueue = new Queue<string>();
         fontsQueue = new Queue<Font>();

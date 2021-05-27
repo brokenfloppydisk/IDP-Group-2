@@ -27,7 +27,7 @@ public class CommandConsole : TextTrigger
         consoleButtons = FindObjectsOfType<ConsoleButton>();
         gameTimer = FindObjectOfType<GameTimer>();
         unselectedAnswers.AddRange(from ConsoleButton button in consoleButtons select button);
-        if (FindObjectOfType<CameraScript>().shipActivated) {
+        if (CameraScript.Instance.shipActivated) {
             correct();
         }
     }
@@ -71,7 +71,7 @@ public class CommandConsole : TextTrigger
     }
     public void correct() {
         puzzleComplete = true;
-        FindObjectOfType<CameraScript>().shipActivated = true;
+        CameraScript.Instance.shipActivated = true;
         setConsoleButtonsActive(false);
         unselectedAnswers.Clear();
         openConsoleButton.SetActive(false);

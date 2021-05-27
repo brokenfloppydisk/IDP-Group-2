@@ -14,7 +14,7 @@ public class TNT : MonoBehaviour
             animator.SetBool("TNTUsed",true);
             door.SetActive(false);
             StartCoroutine(SetArrowActive());
-            FindObjectOfType<CameraScript>().firstDoorExploded = true;
+            CameraScript.Instance.firstDoorExploded = true;
             tntTrigger.sentence = "According to the recipe in the safe, this explosive should be powerful enough now.";
             doorTrigger.sentence = "An exploded door. Let's get out of here!";
         }

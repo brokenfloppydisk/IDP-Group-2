@@ -17,7 +17,7 @@ public class KeypadPuzzle : MonoBehaviour
     public CameraScript cameraScript;
     public Animator animator;
     public void Awake() {
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
     }
     public void checkCompletion() {
         int _successes = 0;

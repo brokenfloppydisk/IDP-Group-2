@@ -13,7 +13,7 @@ public class Cutscene : MonoBehaviour
     public bool useScale;
     private string[] nextScenes = new string[] {"LabCutscene","StartRoom","Library","EscapePod","Survey"};
     private void Awake() {
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
         if (index != 4) {
             if (cameraScript.roomVisited[index]) {
                 SceneManager.LoadScene(nextScenes[index]);

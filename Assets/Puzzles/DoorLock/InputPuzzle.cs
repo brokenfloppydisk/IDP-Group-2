@@ -23,7 +23,7 @@ public class InputPuzzle : MonoBehaviour
         inputField.interactable = false;
         openButton.interactable = false;
         correctLight.sprite = correctLightSprite;
-        CameraScript camera = FindObjectOfType<CameraScript>();
+        CameraScript camera = CameraScript.Instance;
         camera.bayDoorOpen = true;
         bayDoor.gameObject.GetComponent<Button>().interactable = true;
         openButton.GetComponent<Image>().sprite = correctImage;
@@ -31,7 +31,7 @@ public class InputPuzzle : MonoBehaviour
         
     }
     public void Awake() {
-        CameraScript _cameraScript = FindObjectOfType<CameraScript>();
+        CameraScript _cameraScript = CameraScript.Instance;
         if (!_cameraScript.shipActivated) {
             inputField.interactable = false;
             thoughts.sentence = "A panel that controls the door. It doesn't look like it's on.";

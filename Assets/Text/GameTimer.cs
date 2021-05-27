@@ -17,7 +17,7 @@ public class GameTimer : MonoBehaviour
     private Hints hints;
     private void Start() {
         hints = FindObjectOfType<Hints>();
-        cameraScript = FindObjectOfType<CameraScript>();
+        cameraScript = CameraScript.Instance;
         if (cameraScript.roomVisited[0]) {
             Destroy(this.gameObject);
         } else {
