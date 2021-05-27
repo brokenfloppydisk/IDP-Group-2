@@ -26,7 +26,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
     private void Start() {
         if (FindObjectOfType<CameraScript>().firstDoorExploded == true)
         {
-            tntImage.gameObject.transform.position = new Vector3(0, -9000, 0);
+            tntImage.gameObject.transform.position = new Vector3(0, -10000, 0);
             FindObjectOfType<TNT>().ReturnToRoom();
             tntDeskImage.SetActive(false);
             GUIAnimator.SetBool("PuzzleAlreadyFinished", true);
@@ -68,17 +68,17 @@ public class ChemicalMixerPuzzle : MonoBehaviour
         }
         if (puzzleComplete) {
             GUIAnimator.SetBool("TNTAcquired", true);
-            tntImage.gameObject.transform.position = new Vector3(0, -9000, 0);
+            tntImage.gameObject.transform.position = new Vector3(0, -10000, 0);
             tntDeskImage.SetActive(false);
             tntDescription.sentence = "According to the recipe, this explosive should now be strong enough...";
         }
     }
     public void openPuzzle() {
-        itemDescriptions.gameObject.transform.position += new Vector3(0, -1000, 0);
+        itemDescriptions.gameObject.transform.position += new Vector3(0, -10000, 0);
         animator.SetBool("MixerOpen", true);
     }
     public void closePuzzle() {
-        itemDescriptions.gameObject.transform.position += new Vector3(0, 1000, 0);
+        itemDescriptions.gameObject.transform.position += new Vector3(0, 10000, 0);
         animator.SetBool("MixerOpen", false);
     }
 }

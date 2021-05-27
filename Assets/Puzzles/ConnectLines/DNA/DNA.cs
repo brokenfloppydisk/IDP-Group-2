@@ -8,12 +8,12 @@ public class DNA : ConnectPuzzle
     public GameObject itemDescriptions;
     public void openLockMenu() {
         puzzleReset();
-        itemDescriptions.gameObject.transform.position += new Vector3(0,-1000,0);
+        itemDescriptions.gameObject.transform.position += new Vector3(0,-10000,0);
         setAnimationParam("PuzzleOpen", true);
     }
     public void closeLockMenu() {
         clearLineRenderers();
-        itemDescriptions.gameObject.transform.position += new Vector3(0, 1000, 0);
+        itemDescriptions.gameObject.transform.position += new Vector3(0, 10000, 0);
         setAnimationParam("PuzzleOpen", false);
     }
     public void openLock() {

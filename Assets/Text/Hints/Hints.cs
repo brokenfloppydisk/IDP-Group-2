@@ -29,7 +29,7 @@ public class Hints : MonoBehaviour
     private void Awake() {
         cameraScript = FindObjectOfType<CameraScript>();
         cameraScript.hints = this;
-        hintsObject.transform.position += new Vector3(0,-1000,0);
+        hintsObject.transform.position += new Vector3(0,-4000,0);
     }
     private void Start() {
         animator = FindObjectOfType<Animator>();
@@ -58,8 +58,9 @@ public class Hints : MonoBehaviour
         StartCoroutine(MoveHints(-1));
     }
     IEnumerator MoveHints(int multiplier) {
-        for (int i = 0; i < 124; i++) {
-            hintsObject.transform.position += new Vector3(0,multiplier*8,0);
+        hintsObject.transform.position += new Vector3(0,multiplier*3000,0);
+        for (int i = 0; i < 25; i++) {
+            hintsObject.transform.position += new Vector3(0,multiplier*40,0);
             yield return null;
         }
     }

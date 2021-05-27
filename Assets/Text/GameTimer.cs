@@ -11,7 +11,7 @@ public class GameTimer : MonoBehaviour
     public Text text;
     private float startTime {get; set;}
     private float totalHintPenalty = 0;
-    private float[] hintPenalites = new float[] {0,0,0};
+    public float[] hintPenalites = new float[] {0,0,0};
     public int act = 0;
     private CameraScript cameraScript;
     private Hints hints;
@@ -49,13 +49,18 @@ public class GameTimer : MonoBehaviour
     public void AddPenalty(int minutes) {
         totalHintPenalty += (60 * minutes);
         hintPenalites[act] += (60 * minutes);
+        RecordPenalties();
     }
     public void AddPenalty(float minutes) {
         totalHintPenalty += (60 * minutes);
         hintPenalites[act] += (60 * minutes);
+        RecordPenalties();
     }
-    public void RecordTime() {
-        cameraScript.times.Add(Time.time);
+    public void RecordTime(int act) {
+        if (cameraScript.times.Count-1 < act) {
+            Debug.Log("why is the camera script time empty");
+        }
+        cameraScript.times[act] = Time.time;
     }
     public void RecordPenalties() {
         cameraScript.penalties.Clear();

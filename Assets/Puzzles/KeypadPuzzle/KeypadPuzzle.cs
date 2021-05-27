@@ -28,7 +28,7 @@ public class KeypadPuzzle : MonoBehaviour
         }
         if (_successes==3) {
             cameraScript.endTime = Time.time;
-            cameraScript.times.Add(Time.time);
+            FindObjectOfType<GameTimer>().RecordTime(2);
             SceneManager.LoadScene("GoodEnding");
         }
     }

@@ -6,7 +6,7 @@ public class SceneIndexer : TextTrigger
 {
     public int indexerNumber;
     public int index;
-    private int usedHints;
+    private int usedHints = 0;
     private Hints hints;
     private int act;
     public int hintsUsed;
@@ -36,6 +36,8 @@ public class SceneIndexer : TextTrigger
             this.usedHints = hints.usedHints[indexerNumber];
         } else {
             hints.textObjects[indexerNumber] = this.textObject;
+            hintsUsed = 0;
+            index = 0;
             hints.alreadyInitializedText[indexerNumber] = true;
         }
         animator = hints.animator;
@@ -58,7 +60,7 @@ public class SceneIndexer : TextTrigger
         if (penaltyList.Count != 0 && hintsList.Count != 0) {
             if (index < hintsList.Count) {
                 usedHints++;
-                hints.usedHints[indexerNumber] = usedHints;
+                hints.usedHints[indexerNumber] = this.usedHints;
                 textObject.sentences[index] += hintsList[index];
                 StartCoroutine(showText());
                 gameTimer.AddPenalty(penaltyList[index]);
@@ -74,6 +76,7 @@ public class SceneIndexer : TextTrigger
         } else {
             hints.setText("There is no assistance left for this problem.");
         }
+        hints.updateCameraScript();
     }
     IEnumerator showText() {
         yield return new WaitForSeconds(0.05f);

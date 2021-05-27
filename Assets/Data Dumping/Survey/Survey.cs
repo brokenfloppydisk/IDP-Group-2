@@ -9,10 +9,11 @@ public class Survey : MonoBehaviour
     private CameraScript cameraScript;
     private string username;
     private int[] answers = new int[2];
+    [SerializeField]
     private string[] textAnswers = new string[3];
     private string[] intQuestions = new string[] {
-        "From a scale from 1 (bad) to 5 (good), how would you rate the escape room overall?",
-        "From a scale from 1 (not ready) to 5 (ready), how ready do you think the app is to go to market?",
+        "From a scale from 1 (unsatisfactory) to 5 (entertaining), how would you rate your experience with the escape room overall?",
+        "From a scale from 1 (not ready) to 5 (ready), how ready do you think the app is to go to market?"
     };
     private string[] textQuestions = new string[] {
         "What was the best part of the app?",
@@ -23,6 +24,7 @@ public class Survey : MonoBehaviour
     private Text numQuestionText;
     [SerializeField]
     private Text openEndedQuestionText;
+    [SerializeField]
     private string answer;
     [SerializeField]
     private InputField nameField;
@@ -54,6 +56,7 @@ public class Survey : MonoBehaviour
         textAnswers[questionNum] = " ";
         if (questionNum == 2) {
             surveyParts[3].SetActive(false);
+            submitFeedback();
         } else {
             questionNum++;
             openEndedQuestionText.text = textQuestions[questionNum];
@@ -64,6 +67,7 @@ public class Survey : MonoBehaviour
         textAnswers[questionNum] = answer;
         if (questionNum == 2) {
             surveyParts[3].SetActive(false);
+            submitFeedback();
         } else {
             questionNum++;
             openEndedQuestionText.text = textQuestions[questionNum];
@@ -103,8 +107,14 @@ public class Survey : MonoBehaviour
         for (int i = 0; i < 3; i++) {
             surveyAnswers.Add(textAnswers[i]);
         }
+        foreach (var answer in surveyAnswers) {
+            Debug.Log(answer);
+        }
         DataDump.CreateEntry("A","E",surveyAnswers, 1);
         cameraScript.CalculateTimes(username);
+        
+    }
+    public void MainMenu() {
         cameraScript.ResetVars();
         SceneManager.LoadScene("MainMenu");
     }
