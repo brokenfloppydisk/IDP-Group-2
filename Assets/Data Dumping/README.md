@@ -1,6 +1,8 @@
 Spreadsheet used:
 https://docs.google.com/spreadsheets/d/10PPl7Go9VPR4k-bqHTQyRaaJ0LvP4SuUu13N8Ds7g7k/
 
+DEPRACATED; IN-GAME SERVICE ACCOUNT IS DIFFERENT
+
 Google Developer Console - New Project (IDP2021)
 Connect to Google Sheets and Google Drive APIs
 New Service Account - IDPGroup2 - idpgroup2@idp2021.iam.gserviceaccount.com 

@@ -397,7 +397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: EscapePodDoor
-  newGame: 0
   nextAct: 1
 --- !u!61 &58312715
 BoxCollider2D:
@@ -2455,6 +2454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541302661}
   - component: {fileID: 541302660}
+  - component: {fileID: 541302662}
   m_Layer: 0
   m_Name: HintSceneIndexer
   m_TagString: Untagged
@@ -2488,8 +2488,13 @@ MonoBehaviour:
   hintsUsed: 0
   textObject:
     titles:
-    - Hint
+    - Hint 1
+    - Hint 2
+    - Hint 3
+    - Solution Part A
+    - Hint 4
     sentences:
+    - 
     - 
     - 
     - 
@@ -2562,6 +2567,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541302662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541302659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a74354ecbc6cc40ac982ffe7fc100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasHints: 1
 --- !u!1 &566946952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,50 +6447,6 @@ Transform:
   - {fileID: 622521550}
   m_Father: {fileID: 1506525010}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1450340662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1450340664}
-  - component: {fileID: 1450340663}
-  m_Layer: 0
-  m_Name: HintTag
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1450340663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450340662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a74354ecbc6cc40ac982ffe7fc100b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasHints: 1
---- !u!4 &1450340664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450340662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506525009
 GameObject:

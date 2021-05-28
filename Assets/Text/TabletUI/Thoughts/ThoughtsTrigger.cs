@@ -10,7 +10,7 @@ public class ThoughtsTrigger : MonoBehaviour
     [SerializeField]
     [TextArea(2,3)]
     public string sentence;
-    private void Awake() {
+    private void Start() {
         tManager = FindObjectOfType<ThoughtsManager>();
     }
     public void Trigger() {

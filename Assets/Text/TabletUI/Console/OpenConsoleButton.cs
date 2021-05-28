@@ -6,7 +6,7 @@ public class OpenConsoleButton : MonoBehaviour
 {
     private CommandConsole commandConsole;
     public TextObject text;
-    private void Awake() {
+    private void Start() {
         commandConsole = FindObjectOfType<CommandConsole>();
     }
     public void Click() {

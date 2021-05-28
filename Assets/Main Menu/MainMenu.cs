@@ -9,16 +9,20 @@ public class MainMenu : SceneChanger
     private Animator logoAnimator = null;
     [SerializeField]
     private Animator leaderboardAnimator = null;
+    [SerializeField]
+    private Animator howToPlayAnimator = null;
     private void Start() {
-        StartCoroutine(startSequence());
-    }
-    IEnumerator startSequence() {
-        yield return new WaitForSeconds(1);
         CameraScript cameraScript = CameraScript.Instance;
         if (cameraScript.mainMenuFirstTime) {
             logoAnimator.SetBool("OpenLogo", true);
             cameraScript.mainMenuFirstTime = false;
         }
+    }
+    public void OpenInstructions() {
+        howToPlayAnimator.SetBool("CreditsOpen", true);
+    }
+    public void CloseInstructions() {
+        howToPlayAnimator.SetBool("CreditsOpen", false);
     }
     public void Credits() {
         animator.SetBool("CreditsOpen",true);

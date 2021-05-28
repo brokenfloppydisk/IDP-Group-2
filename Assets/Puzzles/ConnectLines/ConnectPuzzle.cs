@@ -15,10 +15,8 @@ public class ConnectPuzzle : MonoBehaviour {
     public Node currentDraggedWire;
     [System.NonSerialized]
     public Node currentHoveredWire;
-    public void puzzleReset()
-    {
-        for (int i = 0; i < bottomNodes.Count; i++)
-        {
+    public void puzzleReset() {
+        for (int i = 0; i < bottomNodes.Count; i++) {
             bottomNodes[i].success = false;
             topNodes[i].success = false;
             bottomNodes[i].connected = false;

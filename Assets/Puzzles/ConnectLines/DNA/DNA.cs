@@ -6,6 +6,19 @@ public class DNA : ConnectPuzzle
 {
     public List<Animator> animators;
     public GameObject itemDescriptions;
+    public void Start() {
+        if (CameraScript.Instance.dnaLockOpened) {
+            puzzleComplete = true;
+            enterButton.interactable = false;
+            resetButton.interactable = false;
+            setAnimationParam("LockOpen", true);
+            Hints hints = FindObjectOfType<Hints>();
+            if (hints.sceneIndexer.index < 2) {
+                hints.sceneIndexer.UpdateIndex(2);
+                hints.sceneIndexer.UpdateHintText();
+            }
+        }
+    }
     public void openLockMenu() {
         puzzleReset();
         itemDescriptions.gameObject.transform.position += new Vector3(0,-10000,0);
@@ -17,12 +30,18 @@ public class DNA : ConnectPuzzle
         setAnimationParam("PuzzleOpen", false);
     }
     public void openLock() {
+        Hints hints = FindObjectOfType<Hints>();
+        if (hints.sceneIndexer.index < 2) {
+            hints.sceneIndexer.UpdateIndex(2);
+            hints.sceneIndexer.UpdateHintText();
+        }
         enterButton.interactable = false;
         resetButton.interactable = false;
         clearLineRenderers();
         StartCoroutine(moveLineRenderers());
         setAnimationParam("LockOpen", true);
         setAnimationParam("PuzzleOpen", true);
+        CameraScript.Instance.dnaLockOpened = true;
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {
@@ -51,13 +70,10 @@ public class DNA : ConnectPuzzle
                 }
                 yield return new WaitForSeconds(0.45f);
             } else {
-                foreach (Node wire in bottomNodes)
-                {
+                foreach (Node wire in bottomNodes) {
                     wire.lineRenderer.SetPosition(0, wire.transform.position);
-                    foreach (Node otherWire in possibleTopWires)
-                    {
-                        if (otherWire.matchIndex == wire.matchIndex)
-                        {
+                    foreach (Node otherWire in possibleTopWires) {
+                        if (otherWire.matchIndex == wire.matchIndex) {
                             possibleTopWires.Remove(otherWire);
                             wire.lineRenderer.SetPosition(1, otherWire.transform.position);
                             break;

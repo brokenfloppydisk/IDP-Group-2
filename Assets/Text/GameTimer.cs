@@ -13,6 +13,7 @@ public class GameTimer : MonoBehaviour
     private float totalHintPenalty = 0;
     public float[] hintPenalites = new float[] {0,0,0};
     public int act = 0;
+    public bool endingLoaded = false;
     private CameraScript cameraScript;
     private Hints hints;
     private void Start() {
@@ -35,13 +36,17 @@ public class GameTimer : MonoBehaviour
         if (timerActive) {
             text.text = "Time Elapsed: " + (minutes > 0 ? minutes.ToString() + ":" : "0:") + (seconds < 10 ? "0" : "") + seconds.ToString();
         }
-        if (minutes >= 40) {
-            badEnding();
+        if (!endingLoaded) {
+            if (minutes >= 40) {
+                badEnding();
+            }
         }
+        
     }
     private void badEnding() {
         hints.updateCameraScript();
         RecordPenalties();
+        endingLoaded = true;
         
         SceneManager.LoadScene("BadEnding");
         

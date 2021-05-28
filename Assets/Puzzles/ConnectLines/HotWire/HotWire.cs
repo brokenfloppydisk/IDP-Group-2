@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HotWire : ConnectPuzzle {
-    private CameraScript cameraScript;
     public Image statusLight;
     public Sprite[] statusLightStates;
     public List<Animator> animators;
     public ThoughtsTrigger thoughts;
     private void Awake() {
-        cameraScript = FindObjectOfType<CameraScript>();
-        if (cameraScript.wiresConnected) {
+        if (CameraScript.Instance.wiresConnected) {
             enterButton.interactable = false;
             resetButton.interactable = false;
             statusLight.sprite = statusLightStates[1];
             thoughts.sentence = "A set of connected electrical wires.";
             FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
+            Hints hints = FindObjectOfType<Hints>();
+            if (hints.sceneIndexer.index < 4) {
+                hints.sceneIndexer.UpdateIndex(4);
+                hints.sceneIndexer.UpdateHintText();
+            }
         }
     }
     public void openPuzzle() {
@@ -31,10 +34,15 @@ public class HotWire : ConnectPuzzle {
         enterButton.interactable = false;
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
-        cameraScript.wiresConnected = true;
+        CameraScript.Instance.wiresConnected = true;
         KeypadPuzzle _keypadPuzzle = FindObjectOfType<KeypadPuzzle>();
         for (int i = 0; i < _keypadPuzzle.keypadImages.Count; i++) {
             _keypadPuzzle.keypadImages[i].sprite = _keypadPuzzle.keypadSprites[0];
+        }
+        Hints hints = FindObjectOfType<Hints>();
+        if (hints.sceneIndexer.index < 4) {
+            hints.sceneIndexer.UpdateIndex(4);
+            hints.sceneIndexer.UpdateHintText();
         }
         thoughts.sentence = "A set of connected electrical wires.";
         FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";

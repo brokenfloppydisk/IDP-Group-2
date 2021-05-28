@@ -12,16 +12,14 @@ public class CameraScript : MonoBehaviour
                 Debug.LogError("CameraScript is null");
             }
             return _instance;
-        } 
-        set{
-
-        }
+        } set{}
     }
     public Camera mainCamera;
     [System.NonSerialized]
     public GameObject[] hiddenButtons = {null, null, null};
     public float startTime = 0;
     public float endTime = 0;
+    public bool dnaLockOpened = false;
     public bool firstDoorExploded = false;
     public bool shipActivated = false;
     public bool wiresConnected = false;
@@ -52,6 +50,7 @@ public class CameraScript : MonoBehaviour
         shipActivated = false;
         wiresConnected = false;
         bayDoorOpen = false;
+        dnaLockOpened = false;
         roomVisited = new bool[] {false, false, false, false, false};
         hiddenButtons = new GameObject[] {null,null,null};
         hints = null;
@@ -119,6 +118,9 @@ public class CameraScript : MonoBehaviour
         penalties = fillList(penalties);
         formatList(penalties);
         formatList(_times.Zip(penalties, (x, y) => (x!= -1 || y!= -1 ? ((x!= -1 ? x : 0) + (y != -1 ? y : 0)) : -1)).ToList());
+        if (times.Contains(-1)) {
+            values[values.Count-1] = -1;
+        }
         DataDump.CreateEntry("A", "R", values, 0);
     }
 }
