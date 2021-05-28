@@ -9,7 +9,7 @@ This project is a virtual escape room that takes place on an alien spaceship. Yo
 
 # To play:
 Go to the releases page (https://github.com/brokenfloppydisk/IDP-Group-2/releases) and download the latest release for your system. 
-(note: only the windows version has an installer, for the rest, extract the .zip to its own folder and run )
+(note: only the windows version has an installer)
 The webgl version must be hosted on a server to run.
 
 IMPORTANT:
