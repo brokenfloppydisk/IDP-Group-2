@@ -321,7 +321,10 @@ MonoBehaviour:
   hintsUsed: 0
   textObject:
     titles:
-    - Hint
+    - Hint 1
+    - Hint 2
+    - Hint 3
+    - Solution
     sentences:
     - 
     - 
@@ -1327,7 +1330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: CommandRoom
-  newGame: 0
   nextAct: 1
 --- !u!61 &1904067197
 BoxCollider2D:
@@ -1988,7 +1990,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: EscapePodCutscene
-  newGame: 0
   nextAct: 2
 --- !u!114 &2047641314
 MonoBehaviour:

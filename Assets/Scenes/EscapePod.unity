@@ -2507,8 +2507,8 @@ MonoBehaviour:
     bgColor: {r: 0.54901963, g: 0.19215688, b: 1, a: 1}
   animator: {fileID: 0}
   hintsList:
-  - According to the console in the command room, you should connect the wires that
-    have the same mathematical solution.
+  - According to the console in the command room, you should drag the wires that
+    have the same mathematical solution together.
   - 'The top row of equations, translated into English, are:
 
     (from left to right)
