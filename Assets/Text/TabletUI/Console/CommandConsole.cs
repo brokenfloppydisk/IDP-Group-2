@@ -23,7 +23,7 @@ public class CommandConsole : TextTrigger
     public GameObject openConsoleButton;
     public bool puzzleComplete = false;
     public GameObject openConsoleButton2;
-    private void Awake() {
+    private void Start() {
         consoleButtons = FindObjectsOfType<ConsoleButton>();
         gameTimer = FindObjectOfType<GameTimer>();
         unselectedAnswers.AddRange(from ConsoleButton button in consoleButtons select button);
@@ -74,7 +74,9 @@ public class CommandConsole : TextTrigger
         CameraScript.Instance.shipActivated = true;
         setConsoleButtonsActive(false);
         unselectedAnswers.Clear();
-        openConsoleButton.SetActive(false);
+        if (openConsoleButton) {
+            openConsoleButton.SetActive(false);
+        }
         openConsoleButton2.SetActive(true);
     }
     public void areYouSure() {

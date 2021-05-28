@@ -24,8 +24,7 @@ public class ChemicalMixerPuzzle : MonoBehaviour
         normalColor = tntImage.color;
     }
     private void Start() {
-        if (CameraScript.Instance.firstDoorExploded == true)
-        {
+        if (CameraScript.Instance.firstDoorExploded == true) {
             tntImage.gameObject.transform.position = new Vector3(0, -10000, 0);
             FindObjectOfType<TNT>().ReturnToRoom();
             tntDeskImage.SetActive(false);

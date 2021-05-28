@@ -55,6 +55,9 @@ public class Survey : MonoBehaviour
     public void skipTextAnswer() {
         textAnswers[questionNum] = " ";
         if (questionNum == 2) {
+            questionNum++;
+            openEndedQuestionText.text = textQuestions[questionNum];
+            answer = "";
             surveyParts[3].SetActive(false);
             submitFeedback();
         } else {
@@ -87,7 +90,7 @@ public class Survey : MonoBehaviour
     public void DontTakeSurvey() {
         cameraScript.CalculateTimes();
         cameraScript.ResetVars();
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("MainMenu");
     }
     public void setValue(int answer) {
         answers[questionNum] = answer;
@@ -106,9 +109,6 @@ public class Survey : MonoBehaviour
         surveyAnswers.Add(answers[1]);
         for (int i = 0; i < 3; i++) {
             surveyAnswers.Add(textAnswers[i]);
-        }
-        foreach (var answer in surveyAnswers) {
-            Debug.Log(answer);
         }
         DataDump.CreateEntry("A","E",surveyAnswers, 1);
         cameraScript.CalculateTimes(username);

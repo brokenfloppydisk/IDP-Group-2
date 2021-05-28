@@ -6,7 +6,7 @@ public class ConfirmButton : MonoBehaviour
 {
     public bool answer;
     private CommandConsole commandConsole;
-    private void Awake() {
+    private void Start() {
         commandConsole = FindObjectOfType<CommandConsole>();
     }
     public void Click() {

@@ -29,7 +29,7 @@ public class SceneIndexer : TextTrigger
         3,
         4
     };
-    private void Awake() {
+    private void Start() {
         hints = FindObjectOfType<Hints>();
         if (hints.alreadyInitializedText[indexerNumber]) {
             this.textObject = hints.textObjects[indexerNumber];
@@ -45,7 +45,7 @@ public class SceneIndexer : TextTrigger
         textManager = hints.textManager;
         this.index = hints.indices[indexerNumber];
         hints.sceneIndexer = this;
-        if (penaltyList.Count != 0) {
+        if (penaltyList.Count != 0 && index < penaltyList.Count) {
             hints.UpdatePromptText(penaltyList[index]);
         } else {
             hints.setText("There is no assistance left for this problem.");
@@ -54,6 +54,9 @@ public class SceneIndexer : TextTrigger
     public void UpdateIndex(int index) {
         this.index = index;
         hints.indices[indexerNumber] = this.index;
+        hints.UpdatePromptText(penaltyList[index]);
+    }
+    public void UpdateHintText() {
         hints.UpdatePromptText(penaltyList[index]);
     }
     public void UseHint() {

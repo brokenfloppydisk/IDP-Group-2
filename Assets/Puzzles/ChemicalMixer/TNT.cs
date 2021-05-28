@@ -9,13 +9,18 @@ public class TNT : MonoBehaviour
     public GameObject door;
     public ThoughtsTrigger doorTrigger;
     public ThoughtsTrigger tntTrigger;
+    public void Start() {
+        if (CameraScript.Instance.firstDoorExploded) {
+            GameObject.Destroy(tntTrigger);
+        }
+    }
     public void ExplodeDoor() {
         if (selected) {
             animator.SetBool("TNTUsed",true);
             door.SetActive(false);
             StartCoroutine(SetArrowActive());
             CameraScript.Instance.firstDoorExploded = true;
-            tntTrigger.sentence = "According to the recipe in the safe, this explosive should be powerful enough now.";
+            GameObject.Destroy(tntTrigger);
             doorTrigger.sentence = "An exploded door. Let's get out of here!";
         }
     }

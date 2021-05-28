@@ -30,6 +30,9 @@ public class Activator : MonoBehaviour
         } else {
             gameObject.SetActive(false);
         }
+        if (index == 1) {
+            FindObjectOfType<CipherGuide>().Disable();
+        }
         
     }
     IEnumerator WaitUntilDestroy() {
