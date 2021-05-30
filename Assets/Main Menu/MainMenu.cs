@@ -11,12 +11,18 @@ public class MainMenu : SceneChanger
     private Animator leaderboardAnimator = null;
     [SerializeField]
     private Animator howToPlayAnimator = null;
+    [SerializeField]
+    private Animator introButtonAnimator = null; 
     private void Start() {
         CameraScript cameraScript = CameraScript.Instance;
         if (cameraScript.mainMenuFirstTime) {
-            logoAnimator.SetBool("OpenLogo", true);
+            introButtonAnimator.SetBool("Click",true);
             cameraScript.mainMenuFirstTime = false;
         }
+    }
+    public void PlayLogo() {
+        introButtonAnimator.SetBool("Click", false);
+        logoAnimator.SetBool("OpenLogo", true);
     }
     public void OpenInstructions() {
         howToPlayAnimator.SetBool("CreditsOpen", true);

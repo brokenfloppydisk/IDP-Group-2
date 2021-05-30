@@ -30,7 +30,8 @@ public class CameraScript : MonoBehaviour
     public List<float> penalties = new List<float>() {0,0,0};
     public List<int> hintsUsed = new List<int>() {0,0,0};
     public bool firstPlaythrough = true;
-    public Hints hints;
+    public Hints hints = null;
+    public Hintcanvas hintsCanvas = null;
     private void Awake() {
         _instance = this;
         DontDestroyOnLoad(this);
@@ -57,6 +58,8 @@ public class CameraScript : MonoBehaviour
         times = new List<float>() { 0, 0, 0 };
         penalties.Clear();
         hintsUsed = new List<int>() { 0, 0, 0 };
+        hintsCanvas = null;
+        GameObject.Destroy(hintsCanvas.gameObject);
         GameObject.Destroy(FindObjectOfType<GameTimer>().gameObject);
     }
     public void CalculateTimes(string name) {

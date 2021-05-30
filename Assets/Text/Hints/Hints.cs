@@ -19,7 +19,6 @@ public class Hints : MonoBehaviour
     public TextManager textManager;
     [System.NonSerialized]
     public GameTimer gameTimer;
-    [System.NonSerialized]
     public Animator animator;
     public bool[] alreadyInitializedText = new bool[] {false,false,false,false,false};
     public TextObject[] textObjects = new TextObject[] {null,null,null,null,null};
@@ -32,7 +31,6 @@ public class Hints : MonoBehaviour
         hintsObject.transform.position += new Vector3(0,-4000,0);
     }
     private void Start() {
-        animator = FindObjectOfType<Animator>();
         gameTimer = FindObjectOfType<GameTimer>();
         textManager = FindObjectOfType<TextManager>();
     }
@@ -46,7 +44,7 @@ public class Hints : MonoBehaviour
         for (int i = 0; i < closeButtons.Length; i++) {
             closeButtons[i].interactable = true;
         }
-        StartCoroutine(MoveHints(1));
+        animator.SetBool("HintsOpen",true);
     }
     public void CloseHintMenu() {
         for (int i = 0; i < closeButtons.Length; i++) {
@@ -55,8 +53,9 @@ public class Hints : MonoBehaviour
         for (int i = 0; i < openButtons.Length; i++) {
             openButtons[i].interactable = true;
         }
-        StartCoroutine(MoveHints(-1));
+        animator.SetBool("HintsOpen", false);
     }
+    /*
     IEnumerator MoveHints(int multiplier) {
         hintsObject.transform.position += new Vector3(0,multiplier*3000,0);
         for (int i = 0; i < 25; i++) {
@@ -64,6 +63,7 @@ public class Hints : MonoBehaviour
             yield return null;
         }
     }
+    */
     public void setText(string text) {
         this.text.text = text;
     }
