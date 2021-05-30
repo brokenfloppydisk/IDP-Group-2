@@ -15,7 +15,6 @@ public class Leaderboard : MonoBehaviour
     private List<string> timesList = new List<string>();
     private List<int> intTimesList = new List<int>();
     private List<int> sortedIntTimesList = new List<int>();
-    private List<string> sortedTimesList = new List<string>();
     private bool leaderboardCreated = false;
 
     public void GetLeaderboard() {

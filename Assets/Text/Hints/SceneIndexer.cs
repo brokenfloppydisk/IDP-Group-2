@@ -12,7 +12,6 @@ public class SceneIndexer : TextTrigger
     public int hintsUsed;
     [SerializeField]
     private TextObject textObject;
-    public Animator animator;
     private GameTimer gameTimer;
     [SerializeField]
     [TextArea(2,10)]
@@ -40,7 +39,6 @@ public class SceneIndexer : TextTrigger
             index = 0;
             hints.alreadyInitializedText[indexerNumber] = true;
         }
-        animator = hints.animator;
         gameTimer = hints.gameTimer;
         textManager = hints.textManager;
         this.index = hints.indices[indexerNumber];
