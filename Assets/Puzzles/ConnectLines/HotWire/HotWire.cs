@@ -14,8 +14,8 @@ public class HotWire : ConnectPuzzle {
             resetButton.interactable = false;
             statusLight.sprite = statusLightStates[1];
             thoughts.sentence = "A set of connected electrical wires.";
-            FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
-            Hints hints = FindObjectOfType<Hints>();
+            Keypad.Instance.thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
+            Hints hints = Hints.Instance;
             if (hints.sceneIndexer.index < 4) {
                 hints.sceneIndexer.UpdateIndex(4);
                 hints.sceneIndexer.UpdateHintText();
@@ -35,17 +35,17 @@ public class HotWire : ConnectPuzzle {
         resetButton.interactable = false;
         statusLight.sprite = statusLightStates[1];
         CameraScript.Instance.wiresConnected = true;
-        KeypadPuzzle _keypadPuzzle = FindObjectOfType<KeypadPuzzle>();
+        KeypadPuzzle _keypadPuzzle = KeypadPuzzle.Instance;
         for (int i = 0; i < _keypadPuzzle.keypadImages.Count; i++) {
             _keypadPuzzle.keypadImages[i].sprite = _keypadPuzzle.keypadSprites[0];
         }
-        Hints hints = FindObjectOfType<Hints>();
+        Hints hints = Hints.Instance;
         if (hints.sceneIndexer.index < 4) {
             hints.sceneIndexer.UpdateIndex(4);
             hints.sceneIndexer.UpdateHintText();
         }
         thoughts.sentence = "A set of connected electrical wires.";
-        FindObjectOfType<Keypad>().thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
+        Keypad.Instance.thoughts.sentence = "Three keypads. They seem to be for inputting coordinates of some sort.";
     }
     public void setAnimationParam(string param, bool value) {
         for (int i = 0; i < animators.Count; i++) {

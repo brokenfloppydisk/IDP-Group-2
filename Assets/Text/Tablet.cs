@@ -5,11 +5,8 @@ using UnityEngine;
 public class Tablet : MonoBehaviour
 {
     public void CutsceneAdvance() {
-        Cutscene cutscene = FindObjectOfType<Cutscene>();
-        if (cutscene) {
-            if (cutscene.index == 1) {
-                cutscene.EndCutscene();
-            }
+        if (Cutscene.StartCutscene != null) {
+            Cutscene.StartCutscene.EndCutscene();
         }
     }
 }

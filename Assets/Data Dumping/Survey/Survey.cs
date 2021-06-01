@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-#pragma warning disable 0649
 public class Survey : MonoBehaviour
 {
-    private CameraScript cameraScript;
-    private string username;
+    [SerializeField]
+    private InputField inputField = null;
+    private string username = null;
     private int[] answers = new int[2];
     [SerializeField]
     private string[] textAnswers = new string[3];
@@ -21,21 +21,14 @@ public class Survey : MonoBehaviour
         "Do you have any other comments, questions, or concerns?"
     };
     [SerializeField]
-    private Text numQuestionText;
+    private Text numQuestionText = null;
     [SerializeField]
-    private Text openEndedQuestionText;
+    private Text openEndedQuestionText = null;
     [SerializeField]
-    private string answer;
-    [SerializeField]
-    private InputField nameField;
-    [SerializeField]
-    private InputField reccomendationsField;
+    private string answer = null;
     [SerializeField]
     private GameObject[] surveyParts = new GameObject[3];
     public int questionNum = 0;
-    private void Awake() {
-        cameraScript = CameraScript.Instance;
-    }
     public void TakeSurvey() {
         surveyParts[0].SetActive(false);
     }
@@ -53,10 +46,11 @@ public class Survey : MonoBehaviour
         this.answer = answer;
     }
     public void skipTextAnswer() {
-        textAnswers[questionNum] = " ";
+        textAnswers[questionNum] = "No Answer Given.";
+        inputField.text = "";
         if (questionNum == 2) {
             questionNum++;
-            openEndedQuestionText.text = textQuestions[questionNum];
+            openEndedQuestionText.text = "";
             answer = "";
             surveyParts[3].SetActive(false);
             submitFeedback();
@@ -68,6 +62,7 @@ public class Survey : MonoBehaviour
     }
     public void setTextAnswer() {
         textAnswers[questionNum] = answer;
+        inputField.text = "";
         if (questionNum == 2) {
             surveyParts[3].SetActive(false);
             submitFeedback();
@@ -88,8 +83,8 @@ public class Survey : MonoBehaviour
         }
     }
     public void DontTakeSurvey() {
-        cameraScript.CalculateTimes();
-        cameraScript.ResetVars();
+        CameraScript.Instance.CalculateTimes();
+        CameraScript.Instance.ResetVars();
         SceneManager.LoadScene("MainMenu");
     }
     public void setValue(int answer) {
@@ -103,19 +98,23 @@ public class Survey : MonoBehaviour
         }
     }
     public void submitFeedback() {
+        if (username == "") {
+            username = "Unknown";
+        }
         DataDump.Initialize();
         List<object> surveyAnswers = new List<object>();
+        surveyAnswers.Add(username);
         surveyAnswers.Add(answers[0]);
         surveyAnswers.Add(answers[1]);
         for (int i = 0; i < 3; i++) {
             surveyAnswers.Add(textAnswers[i]);
         }
-        DataDump.CreateEntry("A","E",surveyAnswers, 1);
-        cameraScript.CalculateTimes(username);
+        DataDump.CreateEntry("A","F",surveyAnswers, 1);
+        CameraScript.Instance.CalculateTimes(username);
         
     }
     public void MainMenu() {
-        cameraScript.ResetVars();
+        CameraScript.Instance.ResetVars();
         SceneManager.LoadScene("MainMenu");
     }
 

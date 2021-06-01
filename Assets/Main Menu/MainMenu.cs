@@ -13,11 +13,18 @@ public class MainMenu : SceneChanger
     private Animator howToPlayAnimator = null;
     [SerializeField]
     private Animator introButtonAnimator = null; 
+    [SerializeField]
+    private GameObject introButton;
+    [SerializeField]
+    private GameObject initializeCanvas;
     private void Start() {
         CameraScript cameraScript = CameraScript.Instance;
         if (cameraScript.mainMenuFirstTime) {
             introButtonAnimator.SetBool("Click",true);
             cameraScript.mainMenuFirstTime = false;
+        } else {
+            introButton.transform.position += new Vector3(0,-10000,0);
+            initializeCanvas.SetActive(false);
         }
     }
     public void PlayLogo() {

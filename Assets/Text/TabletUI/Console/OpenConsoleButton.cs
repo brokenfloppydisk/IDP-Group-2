@@ -7,10 +7,9 @@ public class OpenConsoleButton : MonoBehaviour
     private CommandConsole commandConsole;
     public TextObject text;
     private void Start() {
-        commandConsole = FindObjectOfType<CommandConsole>();
+        commandConsole = CommandConsole.Instance;
     }
     public void Click() {
-        commandConsole.openConsoleButton = gameObject;
         commandConsole.openMenu();
         gameObject.SetActive(false);
     }

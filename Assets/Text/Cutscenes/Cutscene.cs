@@ -5,24 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Cutscene : MonoBehaviour
 {
-    public GameObject cutscene;
+    private static Cutscene _startCutscene;
+    public static Cutscene StartCutscene {
+        get {
+            if (_startCutscene == null) {
+                Debug.Log("Start Cutscene is null");
+            }
+            return _startCutscene;
+        } set {}
+    }
     public Animator animator;
     private CameraScript cameraScript;
     public int index;
-    public GameObject tablet;
-    public bool useScale;
-    private string[] nextScenes = new string[] {"LabCutscene","StartRoom","Library","EscapePod","Survey"};
+    private string[] nextScenes = new string[] {"LabCutscene","StartRoom","CommandRoom","EscapePod","Survey"};
     private void Awake() {
+        if (index == 1) {
+            _startCutscene = this;
+        }
         cameraScript = CameraScript.Instance;
         if (index != 4) {
             if (cameraScript.roomVisited[index]) {
                 SceneManager.LoadScene(nextScenes[index]);
-            }
-            if (useScale) {
-                StartCoroutine(changeScale());
-            }
-            if (index == 0) {
-                tablet = FindObjectOfType<Tablet>().gameObject;
             }
             cameraScript.roomVisited[index] = true;
         }
@@ -33,14 +36,11 @@ public class Cutscene : MonoBehaviour
     }
     public void EndCutscene() {
         animator.SetBool("CutsceneOpen", false);
+        if (_startCutscene != null) { _startCutscene = null; }
         StartCoroutine(NextScene());
     }
     public void Next() {
         animator.SetBool("CutsceneOpen", false);
-    }
-
-    IEnumerator changeScale() {
-        yield return new WaitForSeconds(2);
     }
     IEnumerator NextScene() {
         yield return new WaitForSeconds(2);

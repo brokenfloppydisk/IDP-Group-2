@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
                 Debug.LogError("CameraScript is null");
             }
             return _instance;
-        } set{}
+        } set {}
     }
     public Camera mainCamera;
     [System.NonSerialized]
@@ -38,6 +38,7 @@ public class CameraScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
     public void ResetVars() {
+        GameObject.Destroy(GameTimer.Instance.gameObject);
         if (!firstPlaythrough) {
             for (int i = 0; i < hiddenButtons.Length; i++) {
                 hiddenButtons[i].SetActive(false);
@@ -58,9 +59,20 @@ public class CameraScript : MonoBehaviour
         times = new List<float>() { 0, 0, 0 };
         penalties.Clear();
         hintsUsed = new List<int>() { 0, 0, 0 };
-        hintsCanvas = null;
+        DestroySingletons();
         GameObject.Destroy(hintsCanvas.gameObject);
-        GameObject.Destroy(FindObjectOfType<GameTimer>().gameObject);
+        hintsCanvas = null;
+    }
+    private void DestroySingletons() {
+        TNT.DestroySingleton();
+        GameTimer.DestroySingleton();
+        Keypad.DestroySingleton();
+        KeypadPuzzle.DestroySingleton();
+        GameTimer.DestroySingleton();
+        Hints.DestroySingleton();
+        TextManager.DestroySingleton();
+        CommandConsole.DestroySingleton();
+        ThoughtsManager.DestroySingleton();
     }
     public void CalculateTimes(string name) {
         List<object> values = new List<object>();

@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#pragma warning disable 0649
 public class Activator : MonoBehaviour
 {
     [SerializeField]
-    private int index;
+    private int index = -1;
     [SerializeField]
-    private bool usingText;
+    private bool usingText = false;
     [SerializeField]
-    private bool arrow;
+    private bool arrow = false;
     [SerializeField]
-    private bool waitUntilDestroy;
+    private bool waitUntilDestroy = false;
+    [SerializeField]
+    private TextTrigger textTrigger = null;
     public void Start() {
         if (CameraScript.Instance.hiddenButtons[index].activeSelf) {
             gameObject.SetActive(false);
@@ -20,10 +21,10 @@ public class Activator : MonoBehaviour
     public void Activate() {
         CameraScript.Instance.hiddenButtons[index].SetActive(true);
         if (usingText) {
-            FindObjectOfType<TextTrigger>().TriggerText();
+            textTrigger.TriggerText();
         }
         if (arrow) {
-            FindObjectOfType<CameraScript>().hiddenButtons[2].GetComponent<Arrow>().Flash();
+            CameraScript.Instance.hiddenButtons[2].GetComponent<Arrow>().Flash();
         }
         if (waitUntilDestroy) {
             StartCoroutine(WaitUntilDestroy());
@@ -31,7 +32,7 @@ public class Activator : MonoBehaviour
             gameObject.SetActive(false);
         }
         if (index == 1) {
-            FindObjectOfType<CipherGuide>().Disable();
+            CipherGuide.Instance.Disable();
         }
         
     }

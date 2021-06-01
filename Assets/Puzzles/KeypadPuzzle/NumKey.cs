@@ -7,7 +7,7 @@ public class NumKey : MonoBehaviour
     private Keypad keypad;
     public int addValue; 
     private void Start() {
-        keypad = FindObjectOfType<Keypad>();
+        keypad = Keypad.Instance;
     }
     public void Add() {
         if (keypad.value < 1000) {

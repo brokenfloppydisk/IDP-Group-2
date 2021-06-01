@@ -12,7 +12,7 @@ public class DNA : ConnectPuzzle
             enterButton.interactable = false;
             resetButton.interactable = false;
             setAnimationParam("LockOpen", true);
-            Hints hints = FindObjectOfType<Hints>();
+            Hints hints = Hints.Instance;
             if (hints.sceneIndexer.index < 2) {
                 hints.sceneIndexer.UpdateIndex(2);
                 hints.sceneIndexer.UpdateHintText();
@@ -30,7 +30,7 @@ public class DNA : ConnectPuzzle
         setAnimationParam("PuzzleOpen", false);
     }
     public void openLock() {
-        Hints hints = FindObjectOfType<Hints>();
+        Hints hints = Hints.Instance;
         if (hints.sceneIndexer.index < 2) {
             hints.sceneIndexer.UpdateIndex(2);
             hints.sceneIndexer.UpdateHintText();

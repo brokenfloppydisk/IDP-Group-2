@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 public class ThoughtsManager : MonoBehaviour
 {
+    private static ThoughtsManager _instance;
+    public static ThoughtsManager Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Thoughts manager is null");
+            }
+            return _instance;
+        } set{}
+    }
     [SerializeField]
     private int charsPerFrame;
     [SerializeField]
@@ -16,6 +24,7 @@ public class ThoughtsManager : MonoBehaviour
     private Color thoughtsColor;
     public GameObject thoughts;
     private void Awake() {
+        _instance = this;
         thoughtsColor = thoughtsText.color;
     }
     public void DisplayThoughts(string thought) {
@@ -50,5 +59,9 @@ public class ThoughtsManager : MonoBehaviour
             }
         }
         StartCoroutine(FadeThoughts());
+    }
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
     }
 }

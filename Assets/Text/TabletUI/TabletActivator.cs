@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 public class TabletActivator : MonoBehaviour
 {
     public bool inGUI = false;
     [SerializeField]
-    private Text text;
+    private Text text = null;
     [SerializeField]
-    private Font newFont;
+    private Font newFont = null;
     public void Click() {
         if (!inGUI) {
             StartCoroutine(changeTablet());

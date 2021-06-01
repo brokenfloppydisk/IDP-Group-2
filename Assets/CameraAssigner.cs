@@ -5,6 +5,6 @@ using UnityEngine;
 public class CameraAssigner : MonoBehaviour
 {
     private void Start() {
-        gameObject.GetComponent<Canvas>().worldCamera = FindObjectOfType<Camera>();
+        gameObject.GetComponent<Canvas>().worldCamera = CameraScript.Instance.mainCamera;
     }
 }

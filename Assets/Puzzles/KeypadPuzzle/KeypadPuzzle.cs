@@ -5,6 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class KeypadPuzzle : MonoBehaviour
 {
+    private static KeypadPuzzle _instance;
+    public static KeypadPuzzle Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Keypad is null");
+            }
+            return _instance;
+        } set{}
+    }
     public Keypad keypad;
     public List<int> values = new List<int>() {0,0,0};
     public List<int> correctValues = new List<int>() {721,349,416};
@@ -13,11 +22,9 @@ public class KeypadPuzzle : MonoBehaviour
     public List<Image> keypadImages = new List<Image>();
     public List<Sprite> keypadSprites = new List<Sprite>();
     public Sprite[] lightImages;
-    [System.NonSerialized]
-    public CameraScript cameraScript;
     public Animator animator;
-    public void Awake() {
-        cameraScript = CameraScript.Instance;
+    private void Awake() {
+        _instance = this;
     }
     public void checkCompletion() {
         int _successes = 0;
@@ -27,10 +34,13 @@ public class KeypadPuzzle : MonoBehaviour
             }
         }
         if (_successes==3) {
-            cameraScript.endTime = Time.time;
-            FindObjectOfType<GameTimer>().RecordTime(2);
+            CameraScript.Instance.endTime = Time.time;
+            GameTimer.Instance.RecordTime(2);
             SceneManager.LoadScene("GoodEnding");
         }
     }
-    
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
+    }
 }

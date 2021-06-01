@@ -9,8 +9,8 @@ public class SceneChanger : MonoBehaviour
     [SerializeField]
     private int nextAct = 0;
     public void NextScene() {
-        GameTimer timer = FindObjectOfType<GameTimer>();
-        if (timer) {
+        GameTimer timer = GameTimer.Instance;
+        if (timer != null) {
             timer.act = nextAct;
         }
         SceneManager.LoadScene(newGameScene);

@@ -8,7 +8,7 @@ public class KeypadOpen : MonoBehaviour
     public KeypadPuzzle puzzle;
     public int index;
     public void Awake() {
-        puzzle = FindObjectOfType<KeypadPuzzle>();
+        puzzle = KeypadPuzzle.Instance;
     }
     public void openKeypad() {
         puzzle.animator.SetBool("KeypadOpen", true);
@@ -22,7 +22,7 @@ public class KeypadOpen : MonoBehaviour
         puzzle.keypad.resetButton.interactable = !puzzle.successes[this.index];
         puzzle.keypad.value = puzzle.values[index];
         puzzle.keypad.coordinateLabel = puzzle.coordinates[index];
-        if (puzzle.cameraScript.wiresConnected) {
+        if (CameraScript.Instance.wiresConnected) {
             puzzle.keypad.outputText.text = RomanNum.ToRoman(puzzle.keypad.value);
             puzzle.keypad.sideText.text = puzzle.coordinates[index] + "-COORD";
         } else {

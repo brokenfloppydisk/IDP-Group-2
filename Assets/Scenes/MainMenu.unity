@@ -2745,7 +2745,9 @@ MonoBehaviour:
   logoAnimator: {fileID: 2025979426}
   leaderboardAnimator: {fileID: 1256103605}
   howToPlayAnimator: {fileID: 97691020}
-  introButtonAnimator: {fileID: 0}
+  introButtonAnimator: {fileID: 2129028402}
+  introButton: {fileID: 2129028397}
+  initializeCanvas: {fileID: 1351631254}
 --- !u!95 &1256103605
 Animator:
   serializedVersion: 3
@@ -2986,7 +2988,7 @@ GameObject:
   - component: {fileID: 1351631256}
   - component: {fileID: 1351631255}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: InitializationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4172,7 +4174,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a13999a5c13d3a428a386a56c6cb75f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15ebda9ae3d14e7409133929d24f70be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4949,6 +4951,7 @@ GameObject:
   - component: {fileID: 2129028401}
   - component: {fileID: 2129028400}
   - component: {fileID: 2129028399}
+  - component: {fileID: 2129028402}
   m_Layer: 5
   m_Name: PlayLogoButton
   m_TagString: Untagged
@@ -4973,7 +4976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1000}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1400, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129028399
@@ -5019,12 +5022,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1256103599}
-        m_MethodName: 
+      - m_Target: {fileID: 1256103604}
+        m_MethodName: PlayLogo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5067,6 +5070,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129028397}
   m_CullTransparentMesh: 0
+--- !u!95 &2129028402
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129028397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 280f7cf8180634144a951803483ff92b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2135652629
 GameObject:
   m_ObjectHideFlags: 0
