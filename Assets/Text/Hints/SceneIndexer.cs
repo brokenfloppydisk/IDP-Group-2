@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class SceneIndexer : TextTrigger
 {
-    public int indexerNumber;
-    public int index;
-    private int usedHints = 0;
-    private Hints hints;
-    private int act;
-    public int hintsUsed;
+    private Hints hints = null;
+    public int indexerNumber = -1;
+    public int index = -1;
+    private int usedHints = -1;
     [SerializeField]
     private TextObject textObject;
-    private GameTimer gameTimer;
     [SerializeField]
     [TextArea(2,10)]
     private List<string> hintsList = new List<string>() {
@@ -29,17 +26,15 @@ public class SceneIndexer : TextTrigger
         4
     };
     private void Start() {
-        hints = FindObjectOfType<Hints>();
+        hints = Hints.Instance;
         if (hints.alreadyInitializedText[indexerNumber]) {
             this.textObject = hints.textObjects[indexerNumber];
             this.usedHints = hints.usedHints[indexerNumber];
         } else {
             hints.textObjects[indexerNumber] = this.textObject;
-            hintsUsed = 0;
             index = 0;
             hints.alreadyInitializedText[indexerNumber] = true;
         }
-        gameTimer = hints.gameTimer;
         textManager = hints.textManager;
         this.index = hints.indices[indexerNumber];
         hints.sceneIndexer = this;
@@ -52,10 +47,14 @@ public class SceneIndexer : TextTrigger
     public void UpdateIndex(int index) {
         this.index = index;
         hints.indices[indexerNumber] = this.index;
-        hints.UpdatePromptText(penaltyList[index]);
+        UpdateHintText();
     }
     public void UpdateHintText() {
-        hints.UpdatePromptText(penaltyList[index]);
+        if (index < penaltyList.Count) {
+            hints.UpdatePromptText(penaltyList[index]);
+        } else {
+            hints.setText("There is no assistance left for this problem.");
+        }
     }
     public void UseHint() {
         if (penaltyList.Count != 0 && hintsList.Count != 0) {
@@ -64,16 +63,12 @@ public class SceneIndexer : TextTrigger
                 hints.usedHints[indexerNumber] = this.usedHints;
                 textObject.sentences[index] += hintsList[index];
                 StartCoroutine(showText());
-                gameTimer.AddPenalty(penaltyList[index]);
+                GameTimer.Instance.AddPenalty(penaltyList[index]);
                 index++;
                 hints.indices[indexerNumber] = this.index;
                 hints.textObjects[indexerNumber] = this.textObject;
             }
-            if (index < hintsList.Count) {
-                hints.UpdatePromptText(penaltyList[index]);
-            } else {
-                hints.setText("There is no assistance left for this problem.");
-            }
+            UpdateHintText();
         } else {
             hints.setText("There is no assistance left for this problem.");
         }

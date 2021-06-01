@@ -3,29 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-#pragma warning disable 0649
 public class CommandConsole : TextTrigger
 {
-    public Animator[] screenAnimators;
+    private static CommandConsole _instance;
+    public static CommandConsole Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Command Console is null");
+            }
+            return _instance;
+        } set{}
+    }
+    public Animator[] screenAnimators = new Animator[1];
     [SerializeField]
-    private TextObject correctAnswerText;
+    private TextObject correctAnswerText = null;
     [SerializeField]
-    private TextObject incorrectAnswerText;
+    private TextObject incorrectAnswerText = null;
     [SerializeField]
-    private TextObject areYouSureText;
-    public int correctAnswerNum;
-    private ConsoleButton[] consoleButtons;
-    private GameTimer gameTimer;
-    public ConsoleButton selectedAnswer;
+    private TextObject areYouSureText = null;
+    public int correctAnswerNum = -1;
+    [SerializeField]
+    private ConsoleButton[] consoleButtons = new ConsoleButton[4];
+    public ConsoleButton selectedAnswer = null;
     private List<ConsoleButton> unselectedAnswers = new List<ConsoleButton>();
-    public bool menuOpen;
-    public bool areYouSureOpen;
-    public GameObject openConsoleButton;
+    public bool menuOpen = false;
+    public bool areYouSureOpen = false;
+    public GameObject openConsoleButton = null;
     public bool puzzleComplete = false;
-    public GameObject openConsoleButton2;
+    public GameObject openConsoleButton2 = null;
+    private void Awake() {
+        _instance = this;
+    }
     private void Start() {
-        consoleButtons = FindObjectsOfType<ConsoleButton>();
-        gameTimer = FindObjectOfType<GameTimer>();
         unselectedAnswers.AddRange(from ConsoleButton button in consoleButtons select button);
         if (CameraScript.Instance.shipActivated) {
             correct();
@@ -62,7 +71,7 @@ public class CommandConsole : TextTrigger
         consoleButton.gameObject.SetActive(false);
         unselectedAnswers.Remove(selectedAnswer);
         selectedAnswer = null;
-        gameTimer.AddPenalty(1);
+        GameTimer.Instance.AddPenalty(1);
     }
     public void correctAnswer() {
         correct();
@@ -74,10 +83,11 @@ public class CommandConsole : TextTrigger
         CameraScript.Instance.shipActivated = true;
         setConsoleButtonsActive(false);
         unselectedAnswers.Clear();
-        if (openConsoleButton) {
-            openConsoleButton.SetActive(false);
+        if (CameraScript.Instance.bayDoorOpen) {
+            openConsoleButton2.GetComponent<OpenConsoleButton>().text.sentences[0] = "BAY DOOR: OPEN\nNAVIGATION: OPERATIONAL\nESCAPE PODS: OFFLINE";
         }
         openConsoleButton2.SetActive(true);
+        openConsoleButton.SetActive(false);
     }
     public void areYouSure() {
         areYouSureOpen = true;
@@ -92,5 +102,9 @@ public class CommandConsole : TextTrigger
             incorrectAnswer(selectedAnswer);
         }
         selectedAnswer = null;
+    }
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
     }
 }

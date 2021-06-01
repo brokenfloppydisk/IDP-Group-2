@@ -8,7 +8,7 @@ public class Translator : MonoBehaviour
     public Font font;
     private TextManager textManager;
     public void Start() {
-        textManager = FindObjectOfType<TextManager>();
+        textManager = TextManager.Instance;
     }
     public void Translate() {
         for (int i = 0; i < text.Count; i++) {

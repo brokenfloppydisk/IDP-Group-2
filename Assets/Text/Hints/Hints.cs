@@ -2,37 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 public class Hints : MonoBehaviour
 {
-    private CameraScript cameraScript;
-    public SceneIndexer sceneIndexer;
+    private static Hints _instance;
+    static Hints() {
+    }
+    public static Hints Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Hints are null");
+            }
+            return _instance;
+        } set {}
+    }
+    public SceneIndexer sceneIndexer = null;
     [SerializeField]
-    private Text text;
+    private Text text = null;
     [SerializeField]
-    private GameObject hintsObject;
+    private Button[] closeButtons = null;
     [SerializeField]
-    private Button[] closeButtons;
-    [SerializeField]
-    public Button[] openButtons;
+    public Button[] openButtons = null;
     [System.NonSerialized]
-    public TextManager textManager;
+    public TextManager textManager = null;
     [System.NonSerialized]
-    public GameTimer gameTimer;
-    public Animator animator;
+    public GameTimer gameTimer = null;
+    public Animator animator = null;
     public bool[] alreadyInitializedText = new bool[] {false,false,false,false,false};
     public TextObject[] textObjects = new TextObject[] {null,null,null,null,null};
     public int[] indices = new int[] {0,0,0,0,0};
     public int[] usedHints = new int[] {0,0,0,0,0};
+    [SerializeField]
+    private GameObject canvas = null;
 
     private void Awake() {
-        cameraScript = CameraScript.Instance;
-        cameraScript.hints = this;
-        hintsObject.transform.position += new Vector3(0,-4000,0);
+        _instance = this;
+        CameraScript.Instance.hints = this;
+        GameObject.DontDestroyOnLoad(canvas);
     }
     private void Start() {
-        gameTimer = FindObjectOfType<GameTimer>();
-        textManager = FindObjectOfType<TextManager>();
+        gameTimer = GameTimer.Instance;
+        textManager = TextManager.Instance;
     }
     public void UpdatePromptText(float minutes) {
         text.text = "Asking for assistance from Earth will take " + Mathf.RoundToInt(minutes) + " minute" + (minutes > 1 ? "s" : "");
@@ -80,10 +89,14 @@ public class Hints : MonoBehaviour
         usedHints = new int[] {0,0,0,0,0};
     }
     public void updateCameraScript() {
-        cameraScript.hintsUsed.Clear();
-        cameraScript.hintsUsed.Add(usedHints[0]);
-        cameraScript.hintsUsed.Add(usedHints[2]+usedHints[3]);
-        cameraScript.hintsUsed.Add(usedHints[1]+usedHints[4]);
+        CameraScript.Instance.hintsUsed.Clear();
+        CameraScript.Instance.hintsUsed.Add(usedHints[0]);
+        CameraScript.Instance.hintsUsed.Add(usedHints[2]+usedHints[3]);
+        CameraScript.Instance.hintsUsed.Add(usedHints[1]+usedHints[4]);
         gameTimer.RecordPenalties();
+    }
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
     }
 }

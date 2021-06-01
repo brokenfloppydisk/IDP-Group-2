@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-#pragma warning disable 0649
 public class IntroCutscene : MonoBehaviour
 {
     private int cutsceneStage = 0;
     [SerializeField]
-    private Animator animator;
+    private Animator animator = null;
     public void AdvanceCutscene() {
         if (cutsceneStage < 7) {
             cutsceneStage++;

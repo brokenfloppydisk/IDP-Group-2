@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 1439527558}
   - component: {fileID: 1439527557}
   - component: {fileID: 1439527560}
+  - component: {fileID: 1439527561}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -299,6 +300,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1439527558}
   startTime: 0
   endTime: 0
+  dnaLockOpened: 0
   firstDoorExploded: 0
   shipActivated: 0
   wiresConnected: 0
@@ -316,3 +318,17 @@ MonoBehaviour:
   hintsUsed: 000000000000000000000000
   firstPlaythrough: 1
   hints: {fileID: 0}
+  hintsCanvas: {fileID: 0}
+--- !u!114 &1439527561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439527556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed3e48001e9b1946b2deeead2cc60a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspect: {x: 16, y: 9}

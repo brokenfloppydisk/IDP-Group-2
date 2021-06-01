@@ -2,24 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 public class TextManager : MonoBehaviour
 {
-    private Queue<string> sentences;
-    private Queue<string> titlesQueue;
-    private Queue<Font> fontsQueue;
-    public Text titleText;
-    public Text bodyText;
-    public Image tabletBackground;
-    public List<Animator> animators;
-    private TextObject textObject;
-    private CameraScript cameraScript;
+    private static TextManager _instance;
+    public static TextManager Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Text Manager is null");
+            }
+            return _instance;
+        } set{}
+    }
+    private Queue<string> sentences = new Queue<string>();
+    private Queue<string> titlesQueue = new Queue<string>();
+    private Queue<Font> fontsQueue = new Queue<Font>();
     [SerializeField]
-    private string animatorBoolName;
+    private Text titleText = null;
     [SerializeField]
-    private bool usingAnimators;
-    // Start is called before the first frame update
-    void Start() {
+    private Text bodyText = null;
+    [SerializeField]
+    private Image tabletBackground = null;
+    [SerializeField]
+    private List<Animator> animators = new List<Animator>();
+    private TextObject textObject = null;
+    private CameraScript cameraScript = null;
+    [SerializeField]
+    private string animatorBoolName = "";
+    [SerializeField]
+    private bool usingAnimators = false;
+    [SerializeField]
+    private bool isMainTextManager = false;
+    private void Awake() {
+        if (isMainTextManager) {
+            _instance = this;
+        }
+    }
+    private void Start() {
         cameraScript = CameraScript.Instance;
         sentences = new Queue<string>();
         titlesQueue = new Queue<string>();
@@ -97,5 +115,9 @@ public class TextManager : MonoBehaviour
                 animators[i].SetBool(animatorBoolName, false);
             } 
         }
+    }
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
     }
 }

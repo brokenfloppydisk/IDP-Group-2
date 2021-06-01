@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#pragma warning disable 0649
 public class Arrow : MonoBehaviour
 {
     [SerializeField]
-    private Sprite[] arrowSprites;
+    private Sprite[] arrowSprites = null;
     public void Flash() {
         StartCoroutine(flashingArrow());
     }

@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Keypad : MonoBehaviour
 {
+    private static Keypad _instance;
+    public static Keypad Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("Keypad is null");
+            }
+            return _instance;
+        } set{}
+    }
     public KeypadPuzzle puzzle;
     public int value = 0;
     public Text outputText;
@@ -15,7 +24,10 @@ public class Keypad : MonoBehaviour
     public Button resetButton;
     public ThoughtsTrigger thoughts;
     public void Awake() {
-        puzzle = FindObjectOfType<KeypadPuzzle>();
+        _instance = this;
+    }
+    public void Start() {
+        puzzle = KeypadPuzzle.Instance;
     }
     public void Reset() {
         value = 0;
@@ -23,7 +35,7 @@ public class Keypad : MonoBehaviour
         outputText.text = "Z";
     }
     public void UpdateDisplay() {
-        if (puzzle.cameraScript.wiresConnected) {
+        if (CameraScript.Instance.wiresConnected) {
             puzzle.values[this.index] = value;
             outputText.text = RomanNum.ToRoman(value);
             sideText.text = coordinateLabel + "-COORD";
@@ -50,5 +62,9 @@ public class Keypad : MonoBehaviour
     }
     public void close() {
         puzzle.animator.SetBool("KeypadOpen", false);
+    }
+    public static void DestroySingleton() {
+        Instance = null;
+        _instance = null;
     }
 }

@@ -1537,6 +1537,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &917227127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2610,7 +2611,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1885032096}
-        m_MethodName: skipTextAnswer
+        m_MethodName: skipNumberAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3461,6 +3462,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &1677632157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3928,6 +3930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9f0d0f5d9486d41aae24d7a5d063c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 1677632156}
   textAnswers:
   - 
   - 
@@ -3935,8 +3938,6 @@ MonoBehaviour:
   numQuestionText: {fileID: 1693762437}
   openEndedQuestionText: {fileID: 209987518}
   answer: 
-  nameField: {fileID: 917227126}
-  reccomendationsField: {fileID: 1677632156}
   surveyParts:
   - {fileID: 690288287}
   - {fileID: 1206354023}

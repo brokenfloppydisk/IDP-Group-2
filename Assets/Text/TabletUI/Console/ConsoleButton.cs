@@ -7,7 +7,7 @@ public class ConsoleButton : MonoBehaviour
     public int answerNum;
     private CommandConsole commandConsole;
     private void Start() {
-        commandConsole = FindObjectOfType<CommandConsole>();
+        commandConsole = CommandConsole.Instance;
     }
     public void click() {
         if (commandConsole.menuOpen) {

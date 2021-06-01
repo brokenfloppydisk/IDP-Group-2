@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class ThoughtsTrigger : MonoBehaviour
 {
-    private ThoughtsManager tManager;
+    private ThoughtsManager thoughtsManager;
     [SerializeField]
     private bool hover = true;
     [SerializeField]
     [TextArea(2,3)]
     public string sentence;
     private void Start() {
-        tManager = FindObjectOfType<ThoughtsManager>();
+        thoughtsManager = ThoughtsManager.Instance;
     }
     public void Trigger() {
-        tManager.DisplayThoughts(sentence);
+        thoughtsManager.DisplayThoughts(sentence);
     }
     public void Trigger(string sentence) {
-        tManager.DisplayThoughts(sentence);
+        thoughtsManager.DisplayThoughts(sentence);
     }
 
     private void OnMouseEnter() {

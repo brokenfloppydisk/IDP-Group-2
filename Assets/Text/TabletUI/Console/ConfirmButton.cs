@@ -7,7 +7,7 @@ public class ConfirmButton : MonoBehaviour
     public bool answer;
     private CommandConsole commandConsole;
     private void Start() {
-        commandConsole = FindObjectOfType<CommandConsole>();
+        commandConsole = CommandConsole.Instance;
     }
     public void Click() {
         if (commandConsole.areYouSureOpen) {

@@ -4,12 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TNT : MonoBehaviour
 {
+    private static TNT _instance;
+    public static TNT Instance {
+        get {
+            if (_instance == null) {
+                Debug.Log("TNT is null");
+            }
+            return _instance;
+        } set{}
+    }
     public Animator animator;
     public bool selected;
     public GameObject door;
     public ThoughtsTrigger doorTrigger;
     public ThoughtsTrigger tntTrigger;
-    public void Start() {
+    private void Awake() {
+        _instance = this;
+    }
+    private void Start() {
         if (CameraScript.Instance.firstDoorExploded) {
             GameObject.Destroy(tntTrigger);
         }
@@ -34,5 +46,9 @@ public class TNT : MonoBehaviour
     private IEnumerator SetArrowActive() {
         yield return new WaitForSeconds(1);
         gameObject.GetComponent<Activator>().Activate();
+    }
+    public static void DestroySingleton() {
+        _instance = null;
+        Instance = null;
     }
 }

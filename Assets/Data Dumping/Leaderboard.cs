@@ -40,9 +40,18 @@ public class Leaderboard : MonoBehaviour
                     intTimesList.Remove(-1);
                 }
             }
+            Debug.Log(intTimesList.Count);
+            Debug.Log(usernamesList.Count);
             sortedIntTimesList = intTimesList.ToList().OrderBy(t => t).ToList();
-            sortedUsernamesList.AddRange(from time in sortedIntTimesList
-                                         select usernamesList[intTimesList.IndexOf(time)]);
+            if (sortedIntTimesList.Count > 9) {
+                sortedIntTimesList = sortedIntTimesList.GetRange(0,8).ToList();
+                usernamesList = usernamesList.GetRange(0, 8).ToList();
+            }
+            Debug.Log(sortedIntTimesList.Count);
+            foreach (var time in sortedIntTimesList) {
+
+                sortedUsernamesList.Add(usernamesList[intTimesList.IndexOf(time)]);
+            }
             int leaderboardLength = (sortedUsernamesList.Count <= sortedIntTimesList.Count ? sortedUsernamesList.Count : sortedIntTimesList.Count);
             for (int i = 0; i < leaderboardLength; i++) {
                 usernames[i].text = sortedUsernamesList[i];

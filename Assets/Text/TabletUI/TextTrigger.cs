@@ -7,9 +7,9 @@ public class TextTrigger : MonoBehaviour
     public TextObject textInterface = new TextObject();
     [SerializeField]
     public TextManager textManager;
-    private void Awake() {
+    private void Start() {
         if (textManager == null) {
-            textManager = FindObjectOfType<TextManager>();
+            textManager = TextManager.Instance;
         }
     }
     public void TriggerText(){

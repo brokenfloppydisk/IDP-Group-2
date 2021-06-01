@@ -6,7 +6,7 @@ public class SceneHintTag : MonoBehaviour
 {
     public bool hasHints;
     private void Awake() {
-        Hints hints = FindObjectOfType<CameraScript>().hints;
+        Hints hints = Hints.Instance;
         if (hints) {
             if (!hasHints) {
                 hints.openButtons[0].gameObject.SetActive(false);

@@ -265,10 +265,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'The explosion is silent; the door crumbles to ash. You sneak out of the
-    room into the hallway and the first door you see.
+    room into a hallway and into the first door you see.
 
-    On the ground, you find
-    what seems to be a a small computer chip. What could it be for?'
+    On the ground, you
+    find what seems to be a a small computer chip. What could it be for?'
 --- !u!222 &845978387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -359,6 +359,7 @@ MonoBehaviour:
   usingText: 1
   arrow: 0
   waitUntilDestroy: 1
+  textTrigger: {fileID: 887113825}
 --- !u!114 &887113827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,11 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00225f6dad8849445a2fc4c9d455700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutscene: {fileID: 0}
   animator: {fileID: 936657126}
   index: 2
-  tablet: {fileID: 887113823}
-  useScale: 0
 --- !u!1 &1434248066
 GameObject:
   m_ObjectHideFlags: 0
