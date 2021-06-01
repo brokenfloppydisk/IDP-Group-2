@@ -465,7 +465,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textInterface:
     titles:
-    - MEDICAL RECORDS
+    - MEDICAL RECORDS (PAGE 1)
+    - MEDICAL RECORDS (PAGE 2)
+    - MEDICAL RECORDS (PAGE 3)
+    - MEDICAL RECORDS (PAGE 4)
+    - MEDICAL RECORDS (PAGE 5)
+    - MEDICAL RECORDS (PAGE 6)
     sentences:
     - 'PATIENT XXXI MEDICAL RECORDS
 
