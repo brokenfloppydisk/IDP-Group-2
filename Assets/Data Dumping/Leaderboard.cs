@@ -45,7 +45,6 @@ public class Leaderboard : MonoBehaviour
             sortedIntTimesList = intTimesList.ToList().OrderBy(t => t).ToList();
             if (sortedIntTimesList.Count > 9) {
                 sortedIntTimesList = sortedIntTimesList.GetRange(0,8).ToList();
-                usernamesList = usernamesList.GetRange(0, 8).ToList();
             }
             Debug.Log(sortedIntTimesList.Count);
             foreach (var time in sortedIntTimesList) {

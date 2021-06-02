@@ -1421,7 +1421,7 @@ MonoBehaviour:
       I:   X*Y+II = LXII                               II:  
       V*Y+VII = XII
 
-      III:   XII*Y+XVII =VII                         IV:   IX*Y+IV=XL'
+      III:   XII*Y-XVII =VII                         IV:   IX*Y+IV=XL'
     textColor: {r: 1, g: 1, b: 1, a: 0.8666667}
     fontSize: 30
     titleFontSize: 50
