@@ -48,8 +48,8 @@ public class Leaderboard : MonoBehaviour
             }
             Debug.Log(sortedIntTimesList.Count);
             foreach (var time in sortedIntTimesList) {
-
                 sortedUsernamesList.Add(usernamesList[intTimesList.IndexOf(time)]);
+                intTimesList[intTimesList.IndexOf(time)] = -2;
             }
             int leaderboardLength = (sortedUsernamesList.Count <= sortedIntTimesList.Count ? sortedUsernamesList.Count : sortedIntTimesList.Count);
             for (int i = 0; i < leaderboardLength; i++) {
