@@ -55,10 +55,10 @@ public class GameTimer : MonoBehaviour
         
     }
     private void badEnding() {
-        hints.updateCameraScript();
+        GameTimer.Instance.RecordTime(2);
         RecordPenalties();
         endingLoaded = true;
-        
+        Hints.Instance.updateCameraScript();
         SceneManager.LoadScene("BadEnding");
         
     }

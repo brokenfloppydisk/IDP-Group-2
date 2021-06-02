@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameScene: EscapePod
-  nextAct: 0
+  nextAct: 2
 --- !u!1 &1638077083
 GameObject:
   m_ObjectHideFlags: 0
